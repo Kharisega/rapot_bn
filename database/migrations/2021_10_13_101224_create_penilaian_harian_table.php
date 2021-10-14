@@ -14,7 +14,6 @@ class CreatePenilaianHarianTable extends Migration
     public function up()
     {
         Schema::create('penilaian_harian', function (Blueprint $table) {
-            $table->id();
             $table->string('id_mapel');
             $table->string('id_semester');
             $table->string('id_tahun_ajaran');
