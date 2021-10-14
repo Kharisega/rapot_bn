@@ -14,6 +14,7 @@ class CreateMapelTable extends Migration
     public function up()
     {
         Schema::create('mapel', function (Blueprint $table) {
+            $table->String('id_mapel');
             $table->String('nama_mapel');
             $table->String('jenis_mapel');
             $table->String('jurusan');
