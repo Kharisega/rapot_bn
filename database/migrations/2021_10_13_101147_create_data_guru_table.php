@@ -13,8 +13,8 @@ class CreateDataGuruTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_guru', function (Blueprint $table) {
-            $table->string('id_guru');
+        Schema::create('guru', function (Blueprint $table) {
+            $table->increments('id_guru');
             $table->string('nip');
             $table->string('nama_guru');
             $table->string('jk_guru');
@@ -22,9 +22,10 @@ class CreateDataGuruTable extends Migration
             $table->string('telp_guru');
             $table->string('alamat_guru');
             $table->string('foto_guru');
-            $table->string('mapel_ampuan');
-            $table->string('kelas_ampuan');
+            $table->string('mapel');
+            $table->string('kelas');
             $table->string('status');
+            $table->string('kelas_bimbingan');
             $table->timestamps();
         });
     }
@@ -36,6 +37,6 @@ class CreateDataGuruTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_guru');
+        Schema::dropIfExists('guru');
     }
 }
