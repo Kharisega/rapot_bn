@@ -14,9 +14,10 @@ class CreateDataSiswaTable extends Migration
     public function up()
     {
         Schema::create('data_siswa', function (Blueprint $table) {
-            $table->string('id_siswa');
+            $table->increments('id_siswa');
             $table->String('nama_siswa');
             $table->String('nisn');
+            $table->String('nis');
             $table->String('ttl');
             $table->String('jk');
             $table->String('agama');
@@ -25,7 +26,7 @@ class CreateDataSiswaTable extends Migration
             $table->String('alamat_siswa');
             $table->String('nomor_telp_siswa');
             $table->String('sekolah_asal');
-            $table->String('tanggal_terima');
+            $table->date('tanggal_terima');
             $table->String('nama_ayah');
             $table->String('nama_ibu');
             $table->String('alamat_ortu');
@@ -36,6 +37,7 @@ class CreateDataSiswaTable extends Migration
             $table->String('alamat_wali');
             $table->String('nomor_telp_wali');
             $table->String('pekerjaan_wali');
+            $table->String('foto_siswa');
             $table->timestamps();
             
         });
