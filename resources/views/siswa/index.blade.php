@@ -1,4 +1,4 @@
-@extends('guru.layouts')
+@extends('siswa.layouts')
 
 @section('content')
     <div class="row">
