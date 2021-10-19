@@ -25,3 +25,4 @@ Route::middleware('role:admin')->resource('guru', 'GuruController');
 Route::middleware('role:admin')->resource('siswa', 'SiswaController');
 Route::middleware('role:admin')->resource('mapel', 'MapelController');
 Route::middleware('role:admin')->resource('tahun', 'TahunController');
+Route::middleware('role:admin')->resource('semester', 'SemesterController');
