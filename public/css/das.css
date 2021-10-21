@@ -1,0 +1,105 @@
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}
+#sidebar-container {
+    min-height: 100vh;
+    background-color: rgb(43, 43, 40);
+    padding: 0;
+}
+
+.sidebar-container submenu1{
+    min-height: 100vh;
+    background-color: rgb(199, 199, 26);
+    padding: 0;
+}
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+
+#sidebar-container .list-group a {
+    height: 55px;
+    color: rgb(16, 150, 22);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+
+}
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+.sidebar-separator-title {
+    background-color: rgb(129, 184, 112);
+    height: 35px;
+}
+.sidebar-separator-title small{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.sidebar-separator {
+    background-color: rgb(221, 52, 52);
+    height: 25px;
+}
+.logo-separator {
+    background-color: rgb(95, 7, 7);
+    height: 60px;
+}
+.sidebar
+
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+
+.logo img{
+    width: 120px;
+    height: 70px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+.logop img {
+    width: 120px;
+    height: 70px;
+    margin-top: -10px;
+    border-radius: 10px;
+
+}
+.logop h2{
+  color: rgb(250, 21, 21);
+  margin-left: 130px;
+  margin-top: -60px;
+}
+.logop strong{
+    color: #00ffd5;
+}
+.logop h6{
+    margin-left: 130px;
+  margin-top: -12px;
+  color: hsl(0, 80%, 44%);
+}
+.col img{
+    width: 300px;
+    margin-top: 10px;
+}
