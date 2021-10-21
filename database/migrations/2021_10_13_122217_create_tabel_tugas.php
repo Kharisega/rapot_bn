@@ -14,12 +14,14 @@ class CreateTabelTugas extends Migration
     public function up()
     {
         Schema::create('tabel_tugas', function (Blueprint $table) {
+            $table->increments('id_tugas');
             $table->string('id_mapel');
+            $table->string('id_siswa');
             $table->string('nama_tugas');
             $table->date('tanggal_tugas');
             $table->string('keterangan');
             $table->string('id_semester');
-            $table->string('id_tahun_ajaran');
+            $table->string('id_tahun');
             $table->timestamps();
         });
     }
