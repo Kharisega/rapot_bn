@@ -8,5 +8,8 @@ class Guru extends Model
 {
     public $table = "guru";
     protected $primaryKey = 'id_guru';
-    protected $guarded = [];
+    protected $guarded = [
+        'name',
+        'password',
+    ];
 }

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Siswa;
+use App\User;
+use App\Student;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -59,7 +63,34 @@ class SiswaController extends Controller
             'nomor_telp_wali' => 'required',
             'pekerjaan_wali' => 'required',
             'foto_siswa' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
+
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        $nama_siswa = $request['nama_siswa'];
+        $id_kelas = DB::table('kelas')->where('kelas', $request->kelas)->value('id_kelas');
+        $id_jurusan = DB::table('jurusan')->where('nama', $request->jurusan)->value('id_jurusan');
+        $tahun = DB::table('tahun_ajaran')->orderBy('created_at', 'desc')->value('id_tahun');
+        $semester = DB::table('semester')->where('semester', 'Ganjil')->value('id_semester');
+        $email = $request['email'];
+
+        $student = DB::table('student')->insert([
+            'nama_siswa' => $nama_siswa,
+            'id_kelas' => $id_kelas,
+            'id_jurusan' => $id_jurusan,
+            'id_semester' => $semester,
+            'id_tahun' => $tahun,
+            'email' => $email,
+        ]);
+
+        $user->assignRole('siswa')->get();
         Siswa::create($request->all());
         return redirect()->route('siswa.index')->with('success', "Data Berhasil di input");
     }

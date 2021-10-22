@@ -30,7 +30,44 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama Siswa :</strong>
-                <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                <input type="text" name="nama_siswa" id="nama_siswa" class="form-control" placeholder="Nama Siswa" onfocusout="setNama()">
+                <input type="hidden" name="name" value="" id="name">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Kelas :</strong>
+                <select name="kelas" id="kelas" class="form-control">
+                            <option value="">- Pilih Salah Satu -</option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Kompetensi Keahlian :</strong>
+                <select name="jurusan" id="jurusan" class="form-control">
+                            <option value="">- Pilih Salah Satu -</option>
+                            <option value="RPL">RPL</option>
+                            <option value="BKP">BKP</option>
+                            <option value="TKRO">TKRO</option>
+                            <option value="TB">TB</option>
+                            <option value="MM">MM</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>E-Mail :</strong>
+                <input type="text" name="email" class="form-control" placeholder="Email">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Password :</strong>
+                <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -171,4 +208,10 @@
     </div>
    
 </form>
+<script>
+function setNama() {
+    var name = document.getElementById("nama_siswa").value;
+    document.getElementById("name").value = name;   
+}
+</script>
 @endsection

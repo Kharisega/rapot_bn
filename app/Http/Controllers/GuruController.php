@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Guru;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Post;
 
@@ -49,7 +51,18 @@ class GuruController extends Controller
             'kelas' => 'required',
             'status' => 'required',
             'kelas_bimbingan' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
+
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        $user->assignRole('guru')->get();
         Guru::create($request->all());
         return redirect()->route('guru.index')->with('success', "Data Berhasil di input");
     }

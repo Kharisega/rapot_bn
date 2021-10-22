@@ -14,7 +14,7 @@ class CreateTableStudent extends Migration
     public function up()
     {
         Schema::create('student', function (Blueprint $table) {
-            $table->integer('id_siswa');
+            $table->string('nama_siswa');
             $table->string('id_kelas');
             $table->string('id_jurusan');
             $table->string('id_semester');

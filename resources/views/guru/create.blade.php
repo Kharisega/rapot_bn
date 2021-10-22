@@ -36,7 +36,20 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama :</strong>
-                <input type="text" name="nama_guru" class="form-control" placeholder="Nama">
+                <input type="text" name="nama_guru" id="nama_guru" class="form-control" placeholder="Nama" onfocusout="setNama()">
+                <input type="hidden" name="name" value="" id="name">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>E-Mail :</strong>
+                <input type="text" name="email" class="form-control" placeholder="E-Mail">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Password :</strong>
+                <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -99,4 +112,10 @@
     </div>
    
 </form>
+<script>
+function setNama() {
+    var name = document.getElementById("nama_guru").value;
+    document.getElementById("name").value = name;   
+}
+</script>
 @endsection
