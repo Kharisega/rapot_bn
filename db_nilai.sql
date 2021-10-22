@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Okt 2021 pada 06.55
+-- Waktu pembuatan: 22 Okt 2021 pada 11.27
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -58,39 +58,41 @@ INSERT INTO `data_guru` (`id_guru`, `nip`, `nama_guru`, `jk_guru`, `ttl_guru`, `
 --
 
 CREATE TABLE `data_siswa` (
-  `id_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nisn` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ttl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `agama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_keluarga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_anak` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nomor_telp_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sekolah_asal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_terima` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_ayah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_ibu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat_ortu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nomor_telp_ortu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan_ayah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan_ibu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_wali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat_wali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nomor_telp_wali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan_wali` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_siswa` int(10) UNSIGNED NOT NULL,
+  `nama_siswa` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nisn` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nis` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `ttl` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `jk` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `agama` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `status_keluarga` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `status_anak` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat_siswa` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nomor_telp_siswa` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `sekolah_asal` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `tanggal_terima` date NOT NULL,
+  `nama_ayah` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_ibu` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat_ortu` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nomor_telp_ortu` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `pekerjaan_ayah` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `pekerjaan_ibu` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_wali` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat_wali` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nomor_telp_wali` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `pekerjaan_wali` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `foto_siswa` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `data_siswa`
 --
 
-INSERT INTO `data_siswa` (`id_siswa`, `nama_siswa`, `nisn`, `ttl`, `jk`, `agama`, `status_keluarga`, `status_anak`, `alamat_siswa`, `nomor_telp_siswa`, `sekolah_asal`, `tanggal_terima`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `nomor_telp_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `nomor_telp_wali`, `pekerjaan_wali`, `created_at`, `updated_at`) VALUES
-('1', 'Adzan', '0125469854', 'Batam, 18 Juni 2004', 'Laki-Laki', 'Islam', 'Anak Kandung', 'Anak ke-2', 'Perum Marina View', '087534562468', 'SMP Misi Bagi Bangsa', '15 Juli 2019', 'Yekieli', 'Winarsi', 'Perum Marina View', '087516549523', 'Wiraswasta', 'Tidak Bekerja', '', '', '', '', NULL, NULL),
-('2', 'Ivanalie', '0215498652', 'Magelang, 10 Maret 2004', 'Perempuan', 'Kristen', 'Anak Kandung', 'Anak Ke-1', 'Botton Kopen', '087874157368', 'SMP N 4 Magelang', '15 Juli 2019', 'Kristianto', 'Dwi Ariyani', 'Botton Kopen', '081145677711', 'Wiraswasta', 'Tidak Bekerja', '', '', '', '', NULL, NULL);
+INSERT INTO `data_siswa` (`id_siswa`, `nama_siswa`, `nisn`, `nis`, `ttl`, `jk`, `agama`, `status_keluarga`, `status_anak`, `alamat_siswa`, `nomor_telp_siswa`, `sekolah_asal`, `tanggal_terima`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `nomor_telp_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `nomor_telp_wali`, `pekerjaan_wali`, `foto_siswa`, `created_at`, `updated_at`) VALUES
+(1, 'Adzan', '0125469854', '', 'Batam, 18 Juni 2004', 'Laki-Laki', 'Islam', 'Anak Kandung', 'Anak ke-2', 'Perum Marina View', '087534562468', 'SMP Misi Bagi Bangsa', '0000-00-00', 'Yekieli', 'Winarsi', 'Perum Marina View', '087516549523', 'Wiraswasta', 'Tidak Bekerja', '', '', '', '', '', NULL, NULL),
+(2, 'Ivanalie', '0215498652', '', 'Magelang, 10 Maret 2004', 'Perempuan', 'Kristen', 'Anak Kandung', 'Anak Ke-1', 'Botton Kopen', '087874157368', 'SMP N 4 Magelang', '0000-00-00', 'Kristianto', 'Dwi Ariyani', 'Botton Kopen', '081145677711', 'Wiraswasta', 'Tidak Bekerja', '', '', '', '', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,12 +102,35 @@ INSERT INTO `data_siswa` (`id_siswa`, `nama_siswa`, `nisn`, `ttl`, `jk`, `agama`
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `guru`
+--
+
+CREATE TABLE `guru` (
+  `id_guru` int(10) UNSIGNED NOT NULL,
+  `nip` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `jk_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `ttl_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `telp_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `foto_guru` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kelas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kelas_bimbingan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -114,12 +139,12 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `jurusan` (
-  `id_jurusan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_jurusan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `alias` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `jurusan`
@@ -139,11 +164,11 @@ INSERT INTO `jurusan` (`id_jurusan`, `nama`, `alias`, `created_at`, `updated_at`
 --
 
 CREATE TABLE `kelas` (
-  `id_kelas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kelas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_kelas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `kelas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `kelas`
@@ -161,13 +186,33 @@ INSERT INTO `kelas` (`id_kelas`, `kelas`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `mapel` (
-  `id_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jurusan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_mapel` int(10) UNSIGNED NOT NULL,
+  `nama_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `jenis_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `jurusan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `mapel`
+--
+
+INSERT INTO `mapel` (`id_mapel`, `nama_mapel`, `jenis_mapel`, `jurusan`, `created_at`, `updated_at`) VALUES
+(1, 'Matematika', 'Normatif', 'Umum', NULL, NULL),
+(2, 'PPKn', 'Normatif', 'Umum', NULL, NULL),
+(3, 'Bahasa Indonesia', 'Normatif', 'Umum', NULL, NULL),
+(4, 'Bahasa Inggris', 'Normatif ', 'Umum', NULL, NULL),
+(5, 'Bahasa Jawa', 'Normatif', 'Umum', NULL, NULL),
+(6, 'Sejarah Indonesia', 'Normatif', 'Umum', NULL, NULL),
+(7, 'PKWU', 'Normatif', 'Umum', NULL, NULL),
+(8, 'Pendidikan Agama Kristen', 'Normatif', 'Umum', NULL, NULL),
+(9, 'Pendidikan Agama Katolik', 'Normatif', 'Umum', NULL, NULL),
+(10, 'Pendidikan Agama Islam', 'Normatif', 'Umum', NULL, NULL),
+(11, 'PJOK', 'Normatif ', 'Umum', NULL, NULL),
+(12, 'Seni Budaya', 'Normatif', 'Umum', NULL, NULL),
+(13, 'Fisika', 'Normatif', 'Umum', NULL, NULL),
+(14, 'Kimia', 'Normatif', 'Umum', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,9 +222,9 @@ CREATE TABLE `mapel` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `migrations`
@@ -211,9 +256,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -223,9 +268,18 @@ CREATE TABLE `model_has_permissions` (
 
 CREATE TABLE `model_has_roles` (
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_type` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `model_has_roles`
+--
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(1, 'App\\User', 1),
+(2, 'App\\User', 2),
+(3, 'App\\User', 3);
 
 -- --------------------------------------------------------
 
@@ -234,10 +288,10 @@ CREATE TABLE `model_has_roles` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -246,15 +300,15 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `penilaian_harian` (
-  `id_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_penilaian` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_penilaian` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_tahun_ajaran` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_penilaian` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `tanggal_penilaian` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `keterangan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -264,11 +318,11 @@ CREATE TABLE `penilaian_harian` (
 
 CREATE TABLE `permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -278,11 +332,20 @@ CREATE TABLE `permissions` (
 
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `guard_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'web', '2021-10-22 02:11:50', '2021-10-22 02:11:50'),
+(2, 'guru', 'web', '2021-10-22 02:11:50', '2021-10-22 02:11:50'),
+(3, 'siswa', 'web', '2021-10-22 02:11:50', '2021-10-22 02:11:50');
 
 -- --------------------------------------------------------
 
@@ -293,7 +356,7 @@ CREATE TABLE `roles` (
 CREATE TABLE `role_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -302,11 +365,11 @@ CREATE TABLE `role_has_permissions` (
 --
 
 CREATE TABLE `semester` (
-  `id_semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -316,12 +379,12 @@ CREATE TABLE `semester` (
 
 CREATE TABLE `student` (
   `id_siswa` int(11) NOT NULL,
-  `id_kelas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_jurusan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_kelas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_jurusan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -330,15 +393,15 @@ CREATE TABLE `student` (
 --
 
 CREATE TABLE `tabel_keterampilan` (
-  `id_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_keterampilan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_keterampilan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `tanggal_keterampilan` date NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_tahun_ajaran` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -347,15 +410,15 @@ CREATE TABLE `tabel_keterampilan` (
 --
 
 CREATE TABLE `tabel_remidial` (
-  `id_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_tugas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_tugas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `tanggal_remded` date NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_tahun_ajaran` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -364,15 +427,15 @@ CREATE TABLE `tabel_remidial` (
 --
 
 CREATE TABLE `tabel_tugas` (
-  `id_mapel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_tugas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_mapel` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_tugas` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `tanggal_tugas` date NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_semester` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_semester` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `id_tahun_ajaran` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -381,11 +444,11 @@ CREATE TABLE `tabel_tugas` (
 --
 
 CREATE TABLE `tahun_ajaran` (
-  `id_tahun` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tahun_ajaran` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_tahun` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `tahun_ajaran` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -395,24 +458,51 @@ CREATE TABLE `tahun_ajaran` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@role.test', NULL, '$2y$10$dxyrkqUGuRgH2psKdWbGP.JzBUq3/Nk5YxbJxV0d0Szu5.kEdRHbG', NULL, '2021-10-22 02:11:50', '2021-10-22 02:11:50'),
+(2, 'Guru', 'guru@role.test', NULL, '$2y$10$YFzMI48D1GBoNTEpu23C7ey.U1xkOXnE9dtsjC7YxRzY3R9gwD5Ia', NULL, '2021-10-22 02:11:50', '2021-10-22 02:11:50'),
+(3, 'Siswa', 'siswa@role.test', NULL, '$2y$10$uFqcgGFaFbjkkcD51T7UoeIf/di/PWVUYsp/GMWghgZVRNBe317.q', NULL, '2021-10-22 02:11:50', '2021-10-22 02:11:50');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indeks untuk tabel `data_siswa`
+--
+ALTER TABLE `data_siswa`
+  ADD PRIMARY KEY (`id_siswa`);
+
+--
 -- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  ADD PRIMARY KEY (`id_guru`);
+
+--
+-- Indeks untuk tabel `mapel`
+--
+ALTER TABLE `mapel`
+  ADD PRIMARY KEY (`id_mapel`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -473,10 +563,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `data_siswa`
+--
+ALTER TABLE `data_siswa`
+  MODIFY `id_siswa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `guru`
+--
+ALTER TABLE `guru`
+  MODIFY `id_guru` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `mapel`
+--
+ALTER TABLE `mapel`
+  MODIFY `id_mapel` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -494,13 +602,13 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT untuk tabel `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
