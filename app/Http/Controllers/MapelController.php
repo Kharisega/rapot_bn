@@ -44,7 +44,7 @@ class MapelController extends Controller
         Mapel::create($request->all());
         return redirect()->route('mapel.index')->with('success', "Data Mapel Berhasil di input");
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -93,7 +93,7 @@ class MapelController extends Controller
      */
     public function destroy(Mapel $mapel)
     {
-        $mapel->delete();
-        return redirect()->route('mapel.index')->with('success', 'Data Mapel berhasil dihapus');
+            $mapel->delete();
+            return redirect()->route('mapel.index')->with('success', 'Data Mapel berhasil dihapus');
     }
 }

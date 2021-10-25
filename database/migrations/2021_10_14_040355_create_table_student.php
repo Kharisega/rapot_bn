@@ -17,6 +17,8 @@ class CreateTableStudent extends Migration
             $table->integer('id_siswa');
             $table->string('id_kelas');
             $table->string('id_jurusan');
+            $table->string('id_semester');
+            $table->string('id_tahun');
             $table->string('email');
             $table->timestamps();
         });

@@ -14,12 +14,14 @@ class CreateTabelKeterampilan extends Migration
     public function up()
     {
         Schema::create('tabel_keterampilan', function (Blueprint $table) {
+            $table->increments('id_keterampilan');
             $table->string('id_mapel');
+            $table->string('id_siswa');
             $table->string('nama_keterampilan');
             $table->date('tanggal_keterampilan');
             $table->string('keterangan');
             $table->string('id_semester');
-            $table->string('id_tahun_ajaran');
+            $table->string('id_tahun');
             $table->timestamps();
         });
     }
