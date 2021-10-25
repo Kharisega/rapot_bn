@@ -1,6 +1,7 @@
-@extends('siswa.layouts')
+@extends('layout.app')
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -17,7 +18,6 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -90,5 +90,5 @@
     </table>
 
     {!! $siswa->links() !!}
-
+</div>
 @endsection

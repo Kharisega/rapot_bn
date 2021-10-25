@@ -1,6 +1,7 @@
-@extends('semester.layouts')
+@extends('layout.app')
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -46,5 +47,5 @@
     </table>
 
     {!! $semester->links() !!}
-
+</div>
 @endsection

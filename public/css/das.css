@@ -1,11 +1,17 @@
 #body-row {
-    margin-left:0;
-    margin-right:0;
+    margin:0;
+    padding: 0;
+
+
 }
 #sidebar-container {
     min-height: 100vh;
     background-color: rgb(43, 43, 40);
     padding: 0;
+    margin:0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: scroll;
 }
 
 .sidebar-container submenu1{
@@ -23,7 +29,7 @@
 
 #sidebar-container .list-group a {
     height: 55px;
-    color: rgb(16, 150, 22);
+    color: rgb(244, 245, 241);
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
 }
@@ -38,7 +44,7 @@
     font-size: 0.9rem;
 }
 .sidebar-separator-title {
-    background-color: rgb(129, 184, 112);
+    background-color: rgb(37, 136, 194);
     height: 35px;
 }
 .sidebar-separator-title small{
@@ -76,14 +82,23 @@
     width: 120px;
     height: 70px;
     margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 50px;
+    margin-left: -40px;
 
+}
+.container{
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.pull-right{
+    margin-left: 0;
+    margin-top: 30px;
 }
 .logop img {
     width: 120px;
     height: 70px;
     margin-top: -10px;
-    border-radius: 10px;
+    border-radius: 90px;
 
 }
 .logop h2{
@@ -99,7 +114,14 @@
   margin-top: -12px;
   color: hsl(0, 80%, 44%);
 }
-.col img{
-    width: 300px;
-    margin-top: 10px;
+.col{
+    background-color: rgb(239, 242, 243);
+    margin-left:0;
+    margin-top: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: scroll;
 }
+
