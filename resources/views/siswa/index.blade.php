@@ -1,51 +1,51 @@
 @extends('siswa.layouts')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
+    <div class="container">
+        <div class="col-lg-20 margin-tb alert alert-primary text-center mt-3">
             <div class="pull-left">
                 <h2>Data Siswa</h2>
             </div>
-            <div class="pull-right">
+            <div class="col text-right">
                 <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
     </div>
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="table-responsive">
             <p>{{ $message }}</p>
         </div>
     @endif
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>ID Siswa</th>
-            <th>Nama Siswa</th>
-            <th>NISN</th>
-            <th>NIS</th>
-            <th>Tempat, tanggal lahir</th>
-            <th>Jenis Kelamin</th>
-            <th>Agama</th>
-            <th>Status Keluarga</th>
-            <th>Status Anak</th>
-            <th>Alamat Siswa</th>
-            <th>Nomor Telepon Siswa</th>
-            <th>Sekolah Asal</th>
-            <th>Tanggal Terima</th>
-            <th>Nama Ayah</th>
-            <th>Nama Ibu</th>
-            <th>Alamat Ortu</th>
-            <th>Nomor Telepon Ortu</th>
-            <th>Pekerjaan Ayah</th>
-            <th>Pekerjaan Ibu</th>
-            <th>Nama Wali</th>
-            <th>Alamat Wali</th>
-            <th>Nomor Telepon Wali</th>
-            <th>Pekerjaan Wali</th>
-            <th>Foto Siswa</th>
-            <th>Aksi</th>
+    <table class="table table-success table-striped  align-middle">
+        <tr class="table-dark"> 
+            <th scope="col">No</th>
+            <th scope="col">ID Siswa</th>
+            <th scope="col">Nama Siswa</th>
+            <th scope="col">NISN</th>
+            <th scope="col">NIS</th>
+            <th scope="col">Tempat, tanggal lahir</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Agama</th>
+            <th scope="col">Status Keluarga</th>
+            <th scope="col">Status Anak</th>
+            <th scope="col">Alamat Siswa</th>
+            <th scope="col">Nomor Telepon Siswa</th>
+            <th scope="col">Sekolah Asal</th>
+            <th scope="col">Tanggal Terima</th>
+            <th scope="col">Nama Ayah</th>
+            <th scope="col">Nama Ibu</th>
+            <th scope="col">Alamat Ortu</th>
+            <th scope="col">Nomor Telepon Ortu</th>
+            <th scope="col">Pekerjaan Ayah</th>
+            <th scope="col">Pekerjaan Ibu</th>
+            <th scope="col">Nama Wali</th>
+            <th scope="col">Alamat Wali</th>
+            <th scope="col">Nomor Telepon Wali</th>
+            <th scope="col">Pekerjaan Wali</th>
+            <th scope="col">Foto Siswa</th>
+            <th scope="col">Aksi</th>
         </tr>
         @foreach ($siswa as $i => $siswi)
             <tr>
@@ -76,12 +76,12 @@
                 <td><img src="{{ $siswi->foto_siswa }}" alt="{{ $siswi->foto_siswa }}"></td>
                 <td>
                     <form action="{{ route('siswa.destroy', $siswi->id_siswa) }}" method="POST">
-                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm mb-9 w-50">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm mb-9 w-50">Hapus</button>
 
                     </form>
                 </td>
