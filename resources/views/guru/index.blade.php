@@ -1,39 +1,42 @@
 @extends('guru.layouts')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
+<div class="container">
+        <div class="col-lg-20 margin-tb alert alert-primary text-center mt-3">
             <div class="pull-left">
                 <h2>Data Guru</h2>
             </div>
-            <div class="pull-right">
+            <div class="col text-right">
                 <a href="{{ route('guru.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
     </div>
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="table-responsive">
             <p>{{ $message }}</p>
         </div>
     @endif
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>ID Guru</th>
-            <th>NIP</th>
-            <th>Nama</th>
-            <th>Jenis Kelamin</th>
-            <th>Tempat, tanggal lahir</th>
-            <th>Nomor Telepon</th>
-            <th>Alamat</th>
-            <th>Foto</th>
-            <th>Mata Pelajaran</th>
-            <th>Kelas yang diampu</th>
-            <th>Status</th>
-            <th>Kelas Bimbingan</th>
-        </tr>
+    <table class="table table-success table-striped  align-middle">
+        <tr class="table-dark"> 
+                <th scope="col">No</th>
+                <th scope="col">ID Guru</th>
+                <th scope="col">NIP</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Tempat, tanggal lahir</th>
+                <th scope="col">Nomor Telepon</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Mata Pelajaran</th>
+                <th scope="col">Kelas yang diampu</th>
+                <th scope="col">Status</th>
+                <th scope="col">Kelas Bimbingan</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        </td>
         @foreach ($guru as $i => $gur)
             <tr>
                 <td>{{ ++$i }}</td>
@@ -51,12 +54,12 @@
                 <td>{{ $gur->kelas_bimbingan }}</td>
                 <td>
                     <form action="{{ route('guru.destroy', $gur->id_guru) }}" method="POST">
-                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-success btn-sm mb-9 w-50">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm mb-9 w-50">Hapus</button>
 
                     </form>
                 </td>

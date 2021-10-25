@@ -1,7 +1,7 @@
 @extends('mapel.layouts')
 
 @section('content')
-    <div class="row">
+    <div class="mb-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Data Mapel</h2>
@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-success table-striped  align-middle">
         <tr>
             <th>No</th>
             <th>ID Mata Pelajaran</th>
