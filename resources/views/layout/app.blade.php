@@ -27,7 +27,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="logop">
-                <img src="https://lh3.googleusercontent.com/vnPTEaiWERTE87hqyro36hhy1_2i-Tc8EgLEX4Fi19Dl28JoisU8jubiAkbl5fa_IAQrMA=s136" alt="">
+                <img src="https://cdn.dribbble.com/users/24078/screenshots/15522433/media/e92e58ec9d338a234945ae3d3ffd5be3.jpg?compress=1&resize=400x300" alt="">
                 <h2><strong>R</strong>APORT</h2>
                 <h6><strong>B</strong>agimu <strong>N</strong>egeriku</h6>
             </div>
@@ -176,6 +176,7 @@
                                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+                            
                     </div>
                 </ul>
             </div> <!-- End Sidebar -->

@@ -8,5 +8,9 @@ class Siswa extends Model
 {
     public $table = 'data_siswa';
     protected $primaryKey = 'id_siswa';
-    protected $guarded = [];
+    protected $guarded = [
+        'name',
+        'email',
+        'password',
+    ];
 }

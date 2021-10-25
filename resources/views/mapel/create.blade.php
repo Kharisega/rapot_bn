@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Tambah Data Siswa</h2>
+            <h2>Tambah Mapel</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('mapel.index') }}">Kembali</a>
@@ -30,22 +30,35 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Mata Pelajaran :</strong>
-                <input type="text" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran">
+                <label for="nama">Nama Mata Pelajaran :</label>
+                <input type="text" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran" id="nama">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jenis Mata Pelajaran :</strong>
-                <input type="text" name="jenis_mapel" class="form-control" placeholder="Jenis Mata Pelajaran">
+                <label for="jenis">Jenis Mata Pelajaran :</label>
+                <select class="form-control" name="jenis_mapel" id="jenis">
+                <option selected class="form-select" aria-label="Disabled select example" disabled>Jenis Mata Pelajaran</option>
+                <option value="Normatif">Normatif</option>
+                <option value="Produktif">Produktif</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kompetensi Keahlian :</strong>
-                <input type="text" name="jurusan" class="form-control" placeholder="Kompetensi Keahlian">
+                <label for="jurusan">Kompetensi Keahlian :</label>
+                <select  class="form-control" name='jurusan' id="jurusan" required>
+                <option selected class="form-select" aria-label="Disabled select example" disabled>Kompetensi Keahlian</option>
+                <option value="Umum">Umum</option>
+                <option value="RPL">Rekayasa Perangkat Lunak</option>
+                <option value="BKP">Bisnis Kontruksi dan Properti</option>
+                <option value="TKRO">Teknik Kendaraan Ringan Otomotif</option>
+                <option value="TB">Tata Boga</option>
+                <option value="MM">Multimedia</option>
+                </select>
             </div>
         </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
