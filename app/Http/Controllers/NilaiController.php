@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Tugas;
+use App\Nilai;
+use App\Rencana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class TugasController extends Controller
+class NilaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(request $request)
+    public function index()
     {
-        $keyword = $request->keyword;
+        $users = DB::table('student')
+        ->join('penilaian', 'users.id', '=', 'contacts.user_id')
+        ->join('orders', 'users.id', '=', 'orders.user_id')
+        ->select('users.*', 'contacts.phone', 'orders.price')
+        ->get();
     }
 
     /**
@@ -24,7 +30,7 @@ class TugasController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -41,10 +47,10 @@ class TugasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tugas  $tugas
+     * @param  \App\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function show(Tugas $tugas)
+    public function show(Nilai $nilai)
     {
         //
     }
@@ -52,10 +58,10 @@ class TugasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tugas  $tugas
+     * @param  \App\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tugas $tugas)
+    public function edit(Nilai $nilai)
     {
         //
     }
@@ -64,10 +70,10 @@ class TugasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tugas  $tugas
+     * @param  \App\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tugas $tugas)
+    public function update(Request $request, Nilai $nilai)
     {
         //
     }
@@ -75,10 +81,10 @@ class TugasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tugas  $tugas
+     * @param  \App\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tugas $tugas)
+    public function destroy(Nilai $nilai)
     {
         //
     }

@@ -23,6 +23,7 @@
             <th>No</th>
             <th>ID Pengguna</th>
             <th>Nama</th>
+            <th>Status</th>
             <th>E-Mail</th>
             <th>Password</th>
             <th>Aksi</th>
@@ -32,6 +33,11 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $datas->id }}</td>
                 <td>{{ $datas->name }}</td>
+                <td>
+                    @if($datas->role_id == 1) Admin @endif
+                    @if($datas->role_id == 2) Guru @endif
+                    @if($datas->role_id == 3) Murid @endif
+                </td>
                 <td>{{ $datas->email }}</td>
                 <td>{{ $datas->password }}</td>
                 <td>
