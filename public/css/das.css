@@ -5,19 +5,10 @@
 
 }
 #sidebar-container {
-    min-height: 100vh;
-    background-color: rgb(43, 43, 40);
-    padding: 0;
-    margin:0;
-    padding: 0;
-    overflow-y: auto;
-    overflow-x: scroll;
-}
+    height: 100vh;
+    background-color: #474949;
 
-.sidebar-container submenu1{
-    min-height: 100vh;
-    background-color: rgb(199, 199, 26);
-    padding: 0;
+
 }
 .sidebar-expanded {
     width: 230px;
@@ -29,7 +20,7 @@
 
 #sidebar-container .list-group a {
     height: 55px;
-    color: rgb(244, 245, 241);
+    color: rgb(251, 252, 248);
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
 }
@@ -38,6 +29,7 @@
 #sidebar-container .list-group .sidebar-submenu a {
     height: 45px;
     padding-left: 30px;
+
 
 }
 .sidebar-submenu {
@@ -48,7 +40,7 @@
     height: 35px;
 }
 .sidebar-separator-title small{
-    color: red;
+    color: rgb(54, 51, 51);
     font-size: 20px;
     font-weight: bold;
 }
@@ -60,8 +52,6 @@
     background-color: rgb(95, 7, 7);
     height: 60px;
 }
-.sidebar
-
 #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
   content: " \f0d7";
   font-family: FontAwesome;
@@ -97,25 +87,25 @@
 .logop img {
     width: 120px;
     height: 70px;
-    margin-top: -10px;
+    margin-top: -15px;
     border-radius: 90px;
 
 }
 .logop h2{
-  color: rgb(250, 21, 21);
+  color: rgb(7, 14, 15);
   margin-left: 130px;
   margin-top: -60px;
+  font-size: 20px;
 }
 .logop strong{
-    color: #00ffd5;
+    color: rgb(245, 233, 233);
 }
 .logop h6{
     margin-left: 130px;
   margin-top: -12px;
-  color: hsl(0, 80%, 44%);
+  color: hsl(0, 70%, 34%);
 }
 .col{
-    background-color: rgb(239, 242, 243);
     margin-left:0;
     margin-top: 0;
     padding: 0;
@@ -124,4 +114,7 @@
     overflow-y: auto;
     overflow-x: scroll;
 }
-
+.icon
+{
+    margin-left: auto;
+}

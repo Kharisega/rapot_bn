@@ -6,11 +6,10 @@
             <div class="pull-left">
                 <h2>Data Guru</h2>
             </div>
-            <div class="col text-right">
+            <div class="text-right">
                 <a href="{{ route('guru.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
-    </div>
 
     @if ($message = Session::get('success'))
         <div class="table-responsive">

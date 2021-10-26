@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+    <div class="container">
     <div class="mb-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
