@@ -23,7 +23,7 @@
     </div>
 @endif
    
-<form action="{{ route('rencana.update', $rencana->id_tahun) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('rencana.update', $rencana->id_penilaian) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
   
@@ -32,6 +32,7 @@
             <div class="form-group">
                 <strong>Nama Penilaian :</strong>
                 <input type="text" name="nama_penilaian" value="{{ $rencana->nama_penilaian }}" class="form-control" placeholder="Nama Penilaian">
+                <input type="hidden" name="email" value="{{ $rencana->email }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
