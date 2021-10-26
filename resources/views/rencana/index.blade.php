@@ -27,7 +27,7 @@
                         <option value="TB">TB</option>
                         <option value="MM">MM</option>
                     </select>
-                    <a href="{{ route('rencana.admin') }}" class="btn btn-primary">Semua</a>
+                    <a @if( $data == 1 ) href="{{ route('rencana.admin') }}" @else href="{{ route('rencana.index') }}" @endif class="btn btn-primary">Semua</a>
                     <button type="submit" class="btn btn-block btn-primary">Cari</button>
                 </form>
             </div>
