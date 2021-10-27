@@ -29,12 +29,12 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Semester :</strong>
-                <input type="text" name="semester" class="form-control" placeholder="Semester">
+                <label for="semester">Semester :</label>
+                <input type="text" id="semester" name="semester" class="form-control" placeholder="Semester">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-success btn-sm">Simpan</button>
         </div>
     </div>
    

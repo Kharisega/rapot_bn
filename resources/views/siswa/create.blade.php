@@ -29,16 +29,16 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Siswa :</strong>
+                <label>Nama Siswa :</label>
                 <input type="text" name="nama_siswa" id="nama_siswa" class="form-control" placeholder="Nama Siswa" onfocusout="setNama()">
                 <input type="hidden" name="name" value="" id="name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kelas :</strong>
+                <label>Kelas :</label>
                 <select name="kelas" id="kelas" class="form-control">
-                            <option value="">- Pilih Salah Satu -</option>
+                            <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
                             <option value="X">X</option>
                             <option value="XI">XI</option>
                             <option value="XII">XII</option>
@@ -47,9 +47,9 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kompetensi Keahlian :</strong>
+                <label>Kompetensi Keahlian :</label>
                 <select name="jurusan" id="jurusan" class="form-control">
-                            <option value="">- Pilih Salah Satu -</option>
+                            <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
                             <option value="RPL">RPL</option>
                             <option value="BKP">BKP</option>
                             <option value="TKRO">TKRO</option>
@@ -60,13 +60,13 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>E-Mail :</strong>
+                <label>E-Mail :</label>
                 <input type="text" name="email" class="form-control" placeholder="Email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Password :</strong>
+                <label>Password :</label>
                 <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
         </div>
@@ -215,7 +215,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
         </div>
     </div>
    
