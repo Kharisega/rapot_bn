@@ -1,4 +1,4 @@
-@extends('guru.layouts')
+@extends('layout.app')
 
 @section('content')
 <div class="container">
@@ -6,11 +6,10 @@
             <div class="pull-left">
                 <h2>Data Guru</h2>
             </div>
-            <div class="col text-right">
+            <div class="text-right">
                 <a href="{{ route('guru.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
-    </div>
 
     @if ($message = Session::get('success'))
         <div class="table-responsive">
@@ -19,7 +18,7 @@
     @endif
 
     <table class="table table-success table-striped  align-middle">
-        <tr class="table-dark"> 
+        <tr class="table-dark">
                 <th scope="col">No</th>
                 <th scope="col">ID Guru</th>
                 <th scope="col">NIP</th>
@@ -68,5 +67,5 @@
     </table>
 
     {!! $guru->links() !!}
-
+</div>
 @endsection

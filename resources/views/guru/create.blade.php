@@ -1,17 +1,9 @@
-@extends('guru.layouts')
-  
+@extends('layout.app')
+
 @section('content')
-<!-- <div class="container">
-<div class="card text mt-3 ml-5">
-  <div class="card-header fw-bold">
-  <h1><i class="fas fa-plus me-3"></i>Tambah Guru</h1>
-  </div>
-  <div class="card-body">
-  <form action='/tambahdata/tambah' method='POST'> -->
-
-
 <div class="container">
-    <div class="col-lg-20 margin-tb">
+<div class="row">
+    <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Tambah Guru</h2>
         </div>
@@ -20,7 +12,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -31,10 +23,10 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('guru.store') }}" method="POST">
     @csrf
-  
+
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -172,12 +164,12 @@
             <button class="btn btn-danger" type="button">Reset</button>
         </div> -->
     </div>
-   
+
 </form>
 <script>
 function setNama() {
     var name = document.getElementById("nama_guru").value;
-    document.getElementById("name").value = name;   
+    document.getElementById("name").value = name;
 }
 </script>
 @endsection

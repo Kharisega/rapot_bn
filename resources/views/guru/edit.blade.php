@@ -1,5 +1,5 @@
-@extends('guru.layouts')
-  
+@extends('layout.app')
+
 @section('content')
 <div class="container">
     <div class="col-lg-20 margin-tb">
@@ -11,7 +11,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Edit Gagal</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -22,11 +22,11 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('guru.update', $guru->id_guru) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-  
+
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -145,6 +145,7 @@
                 <button type="submit" class="btn btn-primary">Edit</button>
         </div>
     </div>
-   
+
 </form>
+</div>
 @endsection
