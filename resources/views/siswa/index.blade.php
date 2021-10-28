@@ -1,25 +1,26 @@
-@extends('siswa.layouts')
+@extends('layout.app')
 
 @section('content')
     <div class="container">
-        <div class="col-lg-20 margin-tb alert alert-primary text-center mt-3">
-            <div class="pull-left">
-                <h2>Data Siswa</h2>
-            </div>
-            <div class="col text-right">
-                <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
-            </div>
+        <div class="mb-3">
+                <div class="-lg-20 margin-tb alert alert-primary text-center mt-3">
+                    <div class="pull-left">
+                        <h2>Data Siswa</h2>
+                    </div>
+                    <div class="text-right">
+                        <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
+                    </div>
+                </div>
         </div>
-    </div>
 
-    @if ($message = Session::get('success'))
-        <div class="table-responsive">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+        @if ($message = Session::get('success'))
+            <div class="table-responsive">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
 
-    <table class="table table-success table-striped  align-middle">
-        <tr class="table-dark"> 
+    <table class="table table-dark table-striped  align-middle">
+        <tr>
             <th scope="col">No</th>
             <th scope="col">ID Siswa</th>
             <th scope="col">Nama Siswa</th>
@@ -90,5 +91,5 @@
     </table>
 
     {!! $siswa->links() !!}
-
+</div>
 @endsection

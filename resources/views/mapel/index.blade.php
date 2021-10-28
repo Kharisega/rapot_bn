@@ -1,6 +1,7 @@
-@extends('mapel.layouts')
+@extends('layout.app')
 
 @section('content')
+    <div class="container">
     <div class="mb-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -18,7 +19,7 @@
         </div>
     @endif
 
-    <table class="table table-success table-striped  align-middle">
+    <table class="table table-dark table-striped  align-middle">
         <tr>
             <th>No</th>
             <th>ID Mata Pelajaran</th>
@@ -36,7 +37,7 @@
                 <td>{{ $mata->jurusan }}</td>
                 <td>
                     <form action="{{ route('mapel.destroy', $mata->id_mapel) }}" method="POST">
-                        <a href="{{ route('mapel.edit',$mata->id_mapel) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('mapel.edit',$mata->id_mapel) }}" class="btn btn-warning">Edit</a>
 
                         @csrf
                         @method('DELETE')
@@ -50,5 +51,5 @@
     </table>
 
     {!! $mapel->links() !!}
-
+</div>
 @endsection

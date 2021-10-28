@@ -1,4 +1,4 @@
-@extends('guru.layouts')
+@extends('layout.app')
 
 @section('content')
 <div class="container">
@@ -6,11 +6,10 @@
             <div class="pull-left">
                 <h2>Data Guru</h2>
             </div>
-            <div class="col text-right">
+            <div class="text-right">
                 <a href="{{ route('guru.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
-    </div>
 
     @if ($message = Session::get('success'))
         <div class="table-responsive">
@@ -18,8 +17,8 @@
         </div>
     @endif
 
-    <table class="table table-success table-striped  align-middle">
-        <tr class="table-dark"> 
+    <table class="table table-dark table-hover align-middle">
+        <tr >
                 <th scope="col">No</th>
                 <th scope="col">ID Guru</th>
                 <th scope="col">NIP</th>
@@ -54,12 +53,12 @@
                 <td>{{ $gur->kelas_bimbingan }}</td>
                 <td>
                     <form action="{{ route('guru.destroy', $gur->id_guru) }}" method="POST">
-                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-success btn-sm mb-9 w-50">Edit</a>
+                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-success btn-sm">Edit</a>    
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm mb-9 w-50">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
 
                     </form>
                 </td>
@@ -68,5 +67,5 @@
     </table>
 
     {!! $guru->links() !!}
-
+</div>
 @endsection

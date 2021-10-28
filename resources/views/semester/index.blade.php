@@ -1,7 +1,8 @@
-@extends('semester.layouts')
+@extends('layout.app')
 
 @section('content')
-    <div class="row">
+<div class="container">
+    <div class="mb-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Data Semester</h2>
@@ -18,7 +19,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-dark table-striped  align-middle">
         <tr>
             <th>No</th>
             <th>ID Semester</th>
@@ -32,7 +33,7 @@
                 <td>{{ $semesterr->semester }}</td>
                 <td>
                     <form action="{{ route('semester.destroy', $semesterr->id_semester) }}" method="POST">
-                        <a href="{{ route('semester.edit',$semesterr->id_semester) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('semester.edit',$semesterr->id_semester) }}" class="btn btn-warning">Edit</a>
 
                         @csrf
                         @method('DELETE')
@@ -46,5 +47,5 @@
     </table>
 
     {!! $semester->links() !!}
-
+</div>
 @endsection

@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="jenis">Jenis Mata Pelajaran :</label>
                 <select class="form-control" name="jenis_mapel" value="{{ $mapel->jenis_mapel}}" id="jenis">
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Jenis Mata Pelajaran</option>
+                <option selected class="form-select" aria-label="Disabled select example" disabled>Jenis Mata Pelajaran </option>
                 <option value="Normatif">Normatif</option>
                 <option value="Produktif">Produktif</option>
                 </select>

@@ -53,8 +53,21 @@
                                 </li>
                             @endif
                         @else
+<<<<<<< HEAD
                         <div class="navbar">
                             <li class="nav-item dropdown">
+=======
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                            <!-- <li class="nav-item dropdown">
+>>>>>>> 911e7cecaa6217ecab17b3952e3eec4a2e4e8808
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -70,8 +83,12 @@
                                         @csrf
                                     </form>
                                 </div>
+<<<<<<< HEAD
                             </li>
                         </div>
+=======
+                            </li> -->
+>>>>>>> 911e7cecaa6217ecab17b3952e3eec4a2e4e8808
                         @endguest
                     </ul>
                 </div>

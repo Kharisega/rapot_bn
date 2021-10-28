@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware('role:guru')->resource('rencana', 'RencanaController');
+Route::middleware('role:admin')->get('admin/rencana', 'RencanaController@admin')->name('rencana.admin');
+Route::group(['middleware' => 'role:admin|guru'], function(){
+    Route::post('admin/rencana/cari', 'RencanaController@cari')->name('rencana.cari');
+});
+
 Route::middleware('role:admin')->resource('guru', 'GuruController');
 Route::middleware('role:admin')->resource('siswa', 'SiswaController');
 Route::middleware('role:admin')->resource('mapel', 'MapelController');
