@@ -22,6 +22,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('role:guru')->resource('rencana', 'RencanaController');
+Route::middleware('role:guru')->get('nilai', 'NilaiController@index')->name('nilai.index');
+Route::middleware('role:guru')->get('nilai/{nilai}', 'NilaiController@create')->name('nilai.create');
+Route::middleware('role:guru')->get('lihat/{lihat}', 'NilaiController@show')->name('lihat.show');
+Route::middleware('role:guru')->get('nilai/{lihat}/edit', 'NilaiController@edit')->name('ubah.edit');
+Route::middleware('role:guru')->put('nilaiii', 'NilaiController@update')->name('ubah.update');
+Route::middleware('role:guru')->post('nilaii', 'NilaiController@store')->name('nilai.store');
+
 Route::middleware('role:admin')->get('admin/rencana', 'RencanaController@admin')->name('rencana.admin');
 Route::group(['middleware' => 'role:admin|guru'], function(){
     Route::post('admin/rencana/cari', 'RencanaController@cari')->name('rencana.cari');
