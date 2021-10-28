@@ -93,6 +93,7 @@ class SiswaController extends Controller
         $user->assignRole('siswa')->get();
         Siswa::create($request->all());
         return redirect()->route('siswa.index')->with('success', "Data Berhasil di input");
+        
     }
 
     /**
