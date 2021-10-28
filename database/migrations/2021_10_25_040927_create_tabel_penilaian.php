@@ -21,7 +21,7 @@ class CreateTabelPenilaian extends Migration
             $table->date('tgl_penilaian');
             $table->string('jenis_nilai');
             $table->string('tipe_nilai');
-            $table->integer('id_guru');
+            $table->string('email');
             $table->string('mapel');
             $table->timestamps();
         });
