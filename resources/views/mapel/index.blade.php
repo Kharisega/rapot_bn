@@ -37,12 +37,12 @@
                 <td>{{ $mata->jurusan }}</td>
                 <td>
                     <form action="{{ route('mapel.destroy', $mata->id_mapel) }}" method="POST">
-                        <a href="{{ route('mapel.edit',$mata->id_mapel) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('mapel.edit',$mata->id_mapel) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
 
                     </form>
                 </td>

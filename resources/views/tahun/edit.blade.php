@@ -31,8 +31,8 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tahun Ajaran :</strong>
-                <input type="text" name="tahun_ajaran" class="form-control" value="{{ $tahun->tahun_ajaran}}" placeholder="Tahun Ajaran">
+                <label for="ta">Tahun Ajaran :</label>
+                <input type="text" id="ta" name="tahun_ajaran" class="form-control" value="{{ $tahun->tahun_ajaran}}" placeholder="Tahun Ajaran">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

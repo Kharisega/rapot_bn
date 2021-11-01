@@ -33,12 +33,12 @@
                 <td>{{ $semesterr->semester }}</td>
                 <td>
                     <form action="{{ route('semester.destroy', $semesterr->id_semester) }}" method="POST">
-                        <a href="{{ route('semester.edit',$semesterr->id_semester) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('semester.edit',$semesterr->id_semester) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
 
                     </form>
                 </td>

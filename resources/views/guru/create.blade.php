@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="email">E-Mail :</label>
-                <input type="text" id="email" name="email" class="form-control" placeholder="E-Mail">
+                <input type="text" id="email" name="email" class="form-control" placeholder="Email">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

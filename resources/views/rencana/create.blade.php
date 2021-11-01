@@ -1,6 +1,7 @@
 @extends('rencana.layouts')
   
 @section('content')
+<div class="container">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -29,14 +30,15 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Penilaian :</strong>
-                <input type="text" name="nama_penilaian" class="form-control" placeholder="Nama Penilaian">
+                <label for="np">Nama Penilaian :</label>
+                <input type="text" id="np" name="nama_penilaian" class="form-control" placeholder="Nama Penilaian">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kelas :</strong>
+                <label for="kelas">Kelas :</label>
                 <select name="kelas" id="kelas" class="form-control">
+                    <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
                     <option value="X">X</option>
                     <option value="XI">XI</option>
                     <option value="XII">XII</option>
@@ -45,8 +47,9 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jurusan :</strong>
+                <label for="jurusan">Jurusan :</label>
                 <select name="jurusan" id="jurusan" class="form-control">
+                    <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
                     <option value="RPL">RPL</option>
                     <option value="MM">MM</option>
                     <option value="TKRO">TKRO</option>
@@ -57,30 +60,30 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Mata Pelajaran :</strong>
-                <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                <label for="mapel">Mata Pelajaran :</label>
+                <input type="text" id="mapel" name="mapel" class="form-control" placeholder="Mata Pelajaran">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tipe Nilai :</strong>
-                <input type="text" name="tipe_nilai" class="form-control" placeholder="Tipe Nilai">
+                <label for="tn">Tipe Nilai :</label>
+                <input type="text" id="tn" name="tipe_nilai" class="form-control" placeholder="Tipe Nilai">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Tanggal Penilaian :</strong>
-                <input type="date" name="tgl_penilaian" id="tgl_penilaian" class="form-control">
+                <label for="tgl_penilaian">Tanggal Penilaian :</label>
+                <input type="date"  name="tgl_penilaian" id="tgl_penilaian" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Jenis Nilai :</strong>
-                <input type="text" name="jenis_nilai" class="form-control" placeholder="Jenis Nilai">
+                <label for="jn">Jenis Nilai :</label>
+                <input type="text" id="jn" name="jenis_nilai" class="form-control" placeholder="Jenis Nilai">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
         </div>
     </div>
    

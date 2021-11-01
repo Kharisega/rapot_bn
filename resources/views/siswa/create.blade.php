@@ -140,7 +140,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="telpsiswa">Nomor Telepon Siswa :</label>
-                <input type="text" id="telpsiswa" name="nomor_telp_siswa" class="form-control" placeholder="Kelas yang Diampu">
+                <input type="text" id="telpsiswa" name="nomor_telp_siswa" class="form-control" placeholder="Nomor Telepon Siswa ">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -169,13 +169,13 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="almtortu">Alamat Ortu :</label>
-                <input type="text" id="almtortu" name="alamat_ortu" class="form-control" placeholder="Alamat Ortu">
+                <label for="almtortu">Alamat Orang Tua :</label>
+                <input type="text" id="almtortu" name="alamat_ortu" class="form-control" placeholder="Alamat Orang Tua">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="telportu">Nomor Telepon Ortu</label>
+                <label for="telportu">Nomor Telepon Orang Tua</label>
                 <input type="text" id="telportu" name="nomor_telp_ortu" class="form-control" placeholder="Nomor Telepon Orang Tua">
             </div>
         </div>
