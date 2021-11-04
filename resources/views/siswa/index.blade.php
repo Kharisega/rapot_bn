@@ -77,12 +77,12 @@
                 <td><img src="{{ $siswi->foto_siswa }}" alt="{{ $siswi->foto_siswa }}"></td>
                 <td>
                     <form action="{{ route('siswa.destroy', $siswi->id_siswa) }}" method="POST">
-                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm ">Edit</a>
+                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm w-100 ">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm ">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm w-100">Hapus</button>
 
                     </form>
                 </td>

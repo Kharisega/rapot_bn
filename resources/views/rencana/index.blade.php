@@ -67,12 +67,12 @@
                 <td>{{ $rencanaa->email }}</td>
                 <td @if( $data == 1) hidden @endif>
                     <form action="{{ route('rencana.destroy', $rencanaa->id_penilaian) }}" method="POST">
-                        <a href="{{ route('rencana.edit',$rencanaa->id_penilaian) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('rencana.edit',$rencanaa->id_penilaian) }}" class="btn btn-success btn-sm w-100">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm w-100">Hapus</button>
 
                     </form>
                 </td>

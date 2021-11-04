@@ -53,7 +53,7 @@
                 <td>{{ $gur->kelas_bimbingan }}</td>
                 <td>
                     <form action="{{ route('guru.destroy', $gur->id_guru) }}" method="POST">
-                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-success btn-sm w-100">Edit</a> <br><br>  
+                        <a href="{{ route('guru.edit',$gur->id_guru) }}" class="btn btn-success btn-sm w-100">Edit</a>  
 
                         @csrf
                         @method('DELETE')
