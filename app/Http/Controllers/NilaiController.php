@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
 {
+    public function cari(Request $request)
+    {
+        $rencana = DB::table('penilaian')->where([
+            ['kelas', $request->kelas],
+            ['jurusan', $request->jurusan],
+        ])->get();
+
+        return view('nilai.index', ['rencana' => $rencana]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -92,7 +101,15 @@ class NilaiController extends Controller
             ->where('tabel_nilai.id_penilaian', $lihat)
             ->get();
 
-        return view('nilai.show', ['siswa'=>$siswa]);
+        $check = $siswa->all();
+        if ($check == []) {
+            $siswa = DB::table('penilaian')->where('id_penilaian', $lihat)->get();
+            $data = 0;
+            return view('nilai.show', ['siswa'=>$siswa, 'data' => $data]);
+        }
+
+        $data = 1;
+        return view('nilai.show', ['siswa'=>$siswa, 'data' => $data]);
     }
 
     /**
@@ -143,12 +160,15 @@ class NilaiController extends Controller
                 'id_guru'=>$id_guru,
             ];
 
-            dd($datasave);
-            // $update = DB::table('tabel_nilai')->update($datasave);
+            
+            Nilai::where([
+                ['id_siswa', $id_siswa],
+                ['id_penilaian', $id_penilaian],
+            ])->update($datasave);
         }
         
-        // $rencana = DB::table('penilaian')->where('email', auth()->user()->email)->paginate();
-        // return view('nilai.index', ['rencana' => $rencana]);
+        $rencana = DB::table('penilaian')->where('email', auth()->user()->email)->paginate();
+        return view('nilai.index', ['rencana' => $rencana]);
     }
 
     /**

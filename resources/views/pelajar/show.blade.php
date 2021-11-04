@@ -4,24 +4,14 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Penginputan Nilai</h2>
+            <h2>Penglihatan Nilai</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('nilai.index') }}">Kembali</a>
+            <a class="btn btn-primary" href="{{ route('cek.nilai') }}">Kembali</a>
         </div>
     </div>
 </div>
-   
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
         <p>ID Penilaian : {{ $siswa[0]->id_penilaian }}</p>
         <p>Nama Penilaian : {{ $siswa[0]->nama_penilaian }}</p>
         <p>Kelas : {{ $siswa[0]->kelas }}</p>
@@ -32,10 +22,9 @@
         <p>Mata Pelajaran : {{ $siswa[0]->mapel }}</p>
         <p>E-Mail : {{ $siswa[0]->email }}</p>
 
-
         @if ($data == 0)
             <div class="alert alert-info">
-                <p>Mohon Maaf Nilai siswa belum dimasukkan, Silahkan Memasukkan nilai terlebih dahulu!</p>
+                <p>Mohon Maaf Nilai anda belum dimasukkan, Silahkan hubungi guru anda!</p>
             </div>
         @endif
 
@@ -60,5 +49,4 @@
             @endforeach   
         </table>
         @endif
-
 @endsection

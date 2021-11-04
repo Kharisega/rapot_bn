@@ -10,7 +10,7 @@
     </div>
 
                 <div class="pull-left">
-                <form action="{{ route('rencana.cari') }}" method="post">
+                <form action="{{ route('nilai.cari') }}" method="post">
                 @csrf
                     <select name="kelas" id="kelas" class="form-control">
                         <option value="X">X</option>
@@ -24,7 +24,7 @@
                         <option value="TB">TB</option>
                         <option value="MM">MM</option>
                     </select>
-                    <a href="{{ route('rencana.index') }}" class="btn btn-block btn-primary">Semua</a>
+                    <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary">Semua</a>
                     <button type="submit" class="btn btn-block btn-primary">Cari</button>
                 </form>
             </div>
