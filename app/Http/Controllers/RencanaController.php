@@ -102,6 +102,22 @@ class RencanaController extends Controller
             'email' => $email,
         ]);
 
+        if ($jenis_nilai == 'Penilaian Harian') {
+
+            $remidial = 'Remedial';
+            $tambah = DB::table('penilaian')->insert([
+                'nama_penilaian' => $nama_penilaian,
+                'kelas' => $kelas,
+                'jurusan' => $jurusan,
+                'tgl_penilaian' => $tgl_penilaian,
+                'jenis_nilai' => $remidial,
+                'tipe_nilai' => $tipe_nilai,
+                'mapel' => $mapel,
+                'email' => $email,
+            ]);
+
+        }
+
         return redirect()->route('rencana.index')->with('success', 'Rencana Penilaian telah berhasil di tambahkan');
     }
 
