@@ -113,9 +113,9 @@
                 <label for="kelas">Kelas yang Diampu :</label>
                 <select class="form-control" name='kelas' id="kelas" required>
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Kelas yang Diampu</option>
-                <option value='X'>X</option>
-                <option value='XI'>XI</option>
-                <option value='XII'>XII</option>
+                @foreach ($kelas as $i => $kelass)
+                    <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                @endforeach
                 </select>
             </div>
         </div>
@@ -135,21 +135,11 @@
             <select  class="form-control" name='kelas_bimbingan' id="kelas_bimbingan" required>
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Kelas Bimbingan</option>
                 <option value="-">-</option>
-                <option value='X RPL'>X RPL</option>
-                <option value='X BKP'>X BKP</option>
-                <option value='X TKRO'>X TKRO</option>
-                <option value='X TB'>X TB</option>
-                <option value='X MM'>X MM</option>
-                <option value='XI RPL'>XI RPL</option>
-                <option value='XI BKP'>XI BKP</option>
-                <option value='XI TKRO'>XI TKRO</option>
-                <option value='XI TB'>XI TB</option>
-                <option value='XI MM'>XI MM</option>
-                <option value='XII RPL'>XII RPL</option>
-                <option value='XII BKP'>XII BKP</option>
-                <option value='XII TKRO'>XII TKRO</option>
-                <option value='XII TB'>XII TB</option>
-                <option value='XII MM'>XII MM</option>
+                @foreach ($kelas as $u => $kelasss)
+                    @foreach ($jurusan as $e => $jurusann)
+                        <option value="{{ $kelasss->kelas . " " . $jurusann->nama }}">{{ $kelasss->kelas . " " . $jurusann->nama }}</option>
+                    @endforeach
+                @endforeach
                 </select>
             </div>
             </div>
@@ -158,11 +148,6 @@
                 <button type="submit" class="btn btn-success mt-3">Simpan</button>
                 <button type="reset" class="btn btn-danger mt-3">Reset</button>
         </div>
-
-        <!-- <div class="d-grid gap-2 col-6 mx-auto text-center">
-            <button class="btn btn-success" type="button">Simpan</button>
-            <button class="btn btn-danger" type="button">Reset</button>
-        </div> -->
     </div>
 
 </form>

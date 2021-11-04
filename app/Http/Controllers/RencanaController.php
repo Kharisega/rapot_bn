@@ -61,7 +61,17 @@ class RencanaController extends Controller
      */
     public function create()
     {
-        return view('rencana.create');
+        $email = auth()->user()->email;
+        $kelas = DB::table('guru')->where('email', $email)->value('kelas');
+        $jurusan = DB::table('jurusan')->get();
+        $jenis_nilai = DB::table('jenis_nilai')->get();
+        $mapel = DB::table('mapel')->get();
+        return view('rencana.create', [
+            'kelas' => $kelas,
+            'jurusan' => $jurusan,
+            'jenis_nilai' => $jenis_nilai,
+            'mapel' => $mapel,
+        ]);
     }
 
     /**

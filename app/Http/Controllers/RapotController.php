@@ -16,7 +16,13 @@ class RapotController extends Controller
         $semester = DB::table('semester')->get();
         $mapel = DB::table('guru')->where('email', $email)->value('mapel');
         
-        return view('rapot.kasar.index', ['kelas' => $kelas, 'jurusan' => $jurusan, 'tahun' => $tahun, 'semester' => $semester, 'mapel' => $mapel, ]);
+        return view('rapot.kasar.index', [
+            'kelas' => $kelas,
+            'jurusan' => $jurusan,
+            'tahun' => $tahun,
+            'semester' => $semester,
+            'mapel' => $mapel,
+         ]);
     }
 
     public function show(Request $request)

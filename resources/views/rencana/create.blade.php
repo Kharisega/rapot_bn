@@ -36,22 +36,16 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kelas :</strong>
-                <select name="kelas" id="kelas" class="form-control">
-                    <option value="X">X</option>
-                    <option value="XI">XI</option>
-                    <option value="XII">XII</option>
-                </select>
+                <input type="text" name="kelas" value="{{ $kelas }}" class="form-control" placeholder="kelas" Disabled>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Jurusan :</strong>
                 <select name="jurusan" id="jurusan" class="form-control">
-                    <option value="RPL">RPL</option>
-                    <option value="MM">MM</option>
-                    <option value="TKRO">TKRO</option>
-                    <option value="TB">TB</option>
-                    <option value="BKP">XII</option>
+                    @foreach ($jurusan as $u => $jurusann)
+                        <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -76,7 +70,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Jenis Nilai :</strong>
-                <input type="text" name="jenis_nilai" class="form-control" placeholder="Jenis Nilai">
+                <select name="jenis_nilai" id="jenis_nilai" class="form-control">
+                    @foreach ($jenis_nilai as $u => $jenis_nilaii)
+                        <option value="{{ $jenis_nilaii->jenis_nilai }}">{{ $jenis_nilaii->jenis_nilai }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

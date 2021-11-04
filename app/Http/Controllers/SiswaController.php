@@ -29,7 +29,12 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        $jurusan = DB::table('jurusan')->get();
+        $kelas = DB::table('kelas')->get();
+        return view('siswa.create', [
+            'jurusan' => $jurusan,
+            'kelas' => $kelas,
+        ]);
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('tahun.layouts')
+@extends('rencana.layouts')
 
 @section('content')
     <div class="row">
