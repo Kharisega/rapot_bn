@@ -65,7 +65,7 @@ class RencanaController extends Controller
         $kelas = DB::table('guru')->where('email', $email)->value('kelas');
         $jurusan = DB::table('jurusan')->get();
         $jenis_nilai = DB::table('jenis_nilai')->get();
-        $mapel = DB::table('mapel')->get();
+        $mapel = DB::table('guru')->where('email', $email)->value('mapel');
         return view('rencana.create', [
             'kelas' => $kelas,
             'jurusan' => $jurusan,

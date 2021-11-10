@@ -47,37 +47,51 @@ class RapotController extends Controller
                     ])
                     ->get();
 
-        $tugas_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
-            ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
-            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
-            ->where(
-                [['penilaian.jenis_nilai', 'Tugas Harian']],
-            )
+
+        $tugas_siswa = DB::table('penilaian')
+            ->leftJoin ('tabel_nilai', 'tabel_nilai.id_penilaian', '=', 'penilaian.id_penilaian')
+            ->leftJoin ('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
+            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa', 'penilaian.jenis_nilai', 'penilaian.id_penilaian')
+            ->where([
+                ['penilaian.jenis_nilai', 'Tugas Harian'],
+                ['penilaian.kelas', $kelas],
+                ['penilaian.jurusan', $jurusan],
+            ])
             ->get();
 
-        
+            // dd($tugas_siswa);
 
-        $ulangan_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
-            ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
-            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
-            ->where(
-                [['penilaian.jenis_nilai', 'Penilaian Harian']],
-            )
-            ->get();
+        $ulangan_siswa = DB::table('penilaian')
+            ->leftJoin ('tabel_nilai', 'tabel_nilai.id_penilaian', '=', 'penilaian.id_penilaian')
+            ->leftJoin ('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
+            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa', 'penilaian.jenis_nilai', 'penilaian.id_penilaian', 'penilaian.nama_penilaian')
+            ->where([
+                ['penilaian.jenis_nilai', 'Penilaian Harian'],
+                ['penilaian.kelas', $kelas],
+                ['penilaian.jurusan', $jurusan],
+            ])
+            ->get();    
 
-        $remidi_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
+        $remidi_siswa = DB::table('penilaian')
+            ->rightJoin('tabel_nilai', 'tabel_nilai.id_penilaian', '=', 'penilaian.id_penilaian')
             ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
-            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
+            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa', 'penilaian.id_penilaian')
             ->where(
                 [['penilaian.jenis_nilai', 'Remedial']],
             )
             ->get();
 
+        $remed = DB::table('penilaian')
+            ->rightJoin('tabel_nilai', 'tabel_nilai.id_penilaian', '=', 'penilaian.id_penilaian')
+            ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
+            ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa', 'penilaian.nama_penilaian')
+            ->where(
+                [['penilaian.jenis_nilai', 'Remedial']],
+            )
+            ->count();
+
         $pts_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
+            ->rightJoin('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
             ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
             ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
             ->where(
@@ -86,7 +100,7 @@ class RapotController extends Controller
             ->get();
 
         $pas_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
+            ->rightJoin('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
             ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
             ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
             ->where(
@@ -95,7 +109,7 @@ class RapotController extends Controller
             ->get();
 
         $keterampilan_siswa = DB::table('tabel_nilai')
-            ->join('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
+            ->rightJoin('penilaian', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
             ->join('data_siswa', 'data_siswa.id_siswa', '=', 'tabel_nilai.id_siswa')
             ->select('tabel_nilai.besar_nilai', 'data_siswa.nama_siswa')
             ->where(
@@ -180,6 +194,7 @@ class RapotController extends Controller
             'tugas_siswa' => $tugas_siswa,
             'ulangan_siswa' => $ulangan_siswa,
             'remidi_siswa' => $remidi_siswa,
+            'remed' => $remed,
             'pas_siswa' => $pas_siswa,
             'pts_siswa' => $pts_siswa,
             'keterampilan_siswa' => $keterampilan_siswa,

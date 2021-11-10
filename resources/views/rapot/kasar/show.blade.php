@@ -60,52 +60,102 @@
                     $avetugas = 0;
                     $aveulangan = 0;
                 ?>
+
                 @for ($i=0; $i < ($tugas*$jumlah); $i++) 
-                    @if ($tugas_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        <td>{{ $tugas_siswa[$i]->besar_nilai }}</td>
+                    @if (isset($tugas_siswa[$i]))
+                        @if ($tugas_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                            <td>{{ $tugas_siswa[$i]->besar_nilai }}</td>
                         <?php
-                        $avetugas = $avetugas + $tugas_siswa[$i]->besar_nilai;
+                            $avetugas = $avetugas + $tugas_siswa[$i]->besar_nilai;
                         ?>
+                        @endif
+                    @else
+                        <td>0</td>
                     @endif
                 @endfor
                 
-                @for ($i=0; $i < ($ulangan*$jumlah); $i++) 
-                    @if ($ulangan_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                @for ($i=0; $i < ($ulangan*$jumlah); $i++)
+                    @if (isset($ulangan_siswa[$i]))
+                        @if ($ulangan_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                            <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                            @if ($ulangan_siswa[$i]->besar_nilai >= 75)
+                                <td>0</td>
+                                <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                                <?php
+                                    $aveulangan = $aveulangan + $ulangan_siswa[$i]->besar_nilai;
+                                ?>
+                            @else
+                                <?php $angka = 0; ?>
+                                @while ($angka < $remed)
+                                    @if (isset($remidi_siswa[$angka]))
+                                        @if ($remidi_siswa[$angka]->nama_siswa == $siswaa->nama_siswa)
+                                            @if ($remidi_siswa[$angka]->id_penilaian == ($ulangan_siswa[$i]->id_penilaian + 1))
+                                                <td>{{ $remidi_siswa[$angka]->besar_nilai }}</td>
+                                                <td>{{ $remidi_siswa[$angka]->besar_nilai }}</td>
+                                                <?php
+                                                    $aveulangan = $aveulangan + $remidi_siswa[$angka]->besar_nilai;
+                                                ?>
+                                            @else
+                                                <td>0</td>
+                                                <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                                                <?php
+                                                    $aveulangan = $aveulangan + $ulangan_siswa[$i]->besar_nilai;
+                                                ?>
+                                            @endif
+                                        @endif
+                                    @else
+                                        <td>0</td>
+                                        <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                                        <?php
+                                            $aveulangan = $aveulangan + $ulangan_siswa[$i]->besar_nilai;
+                                        ?>
+                                    @endif
+                                    <?php $angka++; ?>
+                                @endwhile
+                            @endif
+                        @endif
+                    @else
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     @endif
                 @endfor
-                @for ($i=0; $i < ($remidi*$jumlah); $i++) 
-                    @if ($remidi_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        @if ($remidi_siswa[$i]->besar_nilai == null)
-                            <td> - </td>
-                        @else 
-                            <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
-                        @endif
-                        @if ($remidi_siswa[$i] >= '75')
-                            <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
-                            <?php
-                                $aveulangan = $aveulangan + $remidi_siswa[$i]->besar_nilai;
-                            ?>
-                        @endif
-                    @endif
-                @endfor
+
+                
+
                 <td>{{ $rtugas = round($avetugas / $tugas) }}</td>
                 <td>{{ $rulangan = round($aveulangan / $ulangan) }}</td>
+
                 @for ($i=0; $i < ($pts*$jumlah); $i++) 
-                    @if ($pts_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        <td>{{ $pts_siswa[$i]->besar_nilai }}</td>
+                    @if (isset($pts_siswa[$i]))
+                        @if ($pts_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                            <td>{{ $pts_siswa[$i]->besar_nilai }}</td>
+                        @endif
+                    @else
+                        <td>0</td>
                     @endif
                 @endfor
+
                 @for ($i=0; $i < ($pas*$jumlah); $i++) 
-                    @if ($pas_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        <td>{{ $pas_siswa[$i]->besar_nilai }}</td>
+                    @if (isset($pas_siswa[$i]))
+                        @if ($pas_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                            <td>{{ $pas_siswa[$i]->besar_nilai }}</td>
+                        @endif
+                    @else
+                        <td>0</td>
                     @endif
                 @endfor
-                @for ($i=0; $i < ($keterampilan*$jumlah); $i++) 
-                    @if ($keterampilan_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
-                        <td>{{ $keterampilan_siswa[$i]->besar_nilai }}</td>
+
+                @for ($i=0; $i < ($keterampilan*$jumlah); $i++)
+                    @if (isset($keterampilan_siswa[$i]))
+                        @if ($keterampilan_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                            <td>{{ $keterampilan_siswa[$i]->besar_nilai }}</td>
+                        @endif
+                    @else
+                        <td>0</td>
                     @endif
                 @endfor
+
                 <td></td>
             </tr>
             @endforeach

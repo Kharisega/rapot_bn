@@ -37,6 +37,7 @@
             <div class="form-group">
                 <strong>Kelas :</strong>
                 <input type="text" name="kelas" value="{{ $kelas }}" class="form-control" placeholder="kelas" Disabled>
+                <input type="hidden" name="kelas" value="{{ $kelas }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -52,13 +53,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Mata Pelajaran :</strong>
-                <input type="text" name="mapel" class="form-control" placeholder="Mata Pelajaran">
+                <input type="text" name="mapel" value="{{ $mapel }}" class="form-control" placeholder="Mata Pelajaran" disabled>
+                <input type="hidden" name="mapel" value="{{ $mapel }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Tipe Nilai :</strong>
-                <input type="text" name="tipe_nilai" class="form-control" placeholder="Tipe Nilai">
+                <select name="tipe_nilai" id="tipe_nilai" class="form-control">
+                    <option value="Pengetahuan">Pengetahuan</option>
+                    <option value="Keterampilan">Keterampilan</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
