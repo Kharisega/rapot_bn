@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Post;
+// use image;
 
 class GuruController extends Controller
 {
@@ -125,4 +126,45 @@ class GuruController extends Controller
         $guru->delete();
         return redirect()->route('guru.index')->with('success', 'Data Guru berhasil dihapus');
     }
+
+    // public function etcStore(Request $request) {
+    //     $validator = Validator::make($request->all(), [
+    //         'img' => 'required|image:jpg,jpeg,png',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->with('error', 'Data gagal disimpan. Cek kembali data yang Anda masukkan.');
+    //     }
+
+    //     $image = $request->file('img');
+    //     // $filename = time().'.'.$image->getClientOriginalExtension();
+    //     $filename =  Str::slug($request->input('title')).'_'.time();
+
+    //     // $folder = 'Nilai Akademik/img/etc/';
+    //     $destinationThumb = storage_path('Nilai Akademik/img/etc/thumb/'.$filename);
+
+    //     $imgThumb = Image::make($image->getRealPath());
+    //     // $filePath = $folder . $filename. '.' . $image->getClientOriginalExtension();
+
+    //     $imgThumb->resize(150, 150, function ($constraint) {
+    //         $constraint->aspectRatio();
+    //     })->save($destinationThumb);
+
+    //     $destinationPath = storage_path('Nilai Akademik/img/etc/'.$filename);
+
+    //     $imgOri = Image::make($image->getRealPath());
+
+    //     $imgOri->resize(900, 900, function ($constraint) {
+    //         $constraint->aspectRatio();
+    //     // })->save($filePath);
+    //     })->save($destinationPath);
+
+    //     Etc::create([
+    //         'id_guru' => $request->id_guru,
+    //         'name'       => $request->name,
+    //         'img'        => $filename
+    //     ]);
+
+    //     return redirect()->back()->with('success', 'Data berhasil disimpan.');
+    // }
 }

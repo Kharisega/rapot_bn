@@ -59,3 +59,13 @@ Route::middleware('role:admin')->post('admin/tambah', 'AdminController@create')-
 Route::middleware('role:admin')->get('admin/show', 'AdminController@show')->name('admin.show');
 Route::middleware('role:admin')->get('admin/edit', 'AdminController@update')->name('admin.update');
 Route::middleware('role:admin')->delete('admin/destroy/{id}', 'AdminController@destroy')->name('admin.destroy');
+
+// Route untuk image guru
+// Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
+// Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+// Route::get('/', function()
+// {
+//     $image = Image::make('foo.jpg')->resize(300, 200);
+
+//     return $image->response('jpg');
+// });

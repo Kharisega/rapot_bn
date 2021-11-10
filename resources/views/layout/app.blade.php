@@ -154,7 +154,7 @@
                         </div>
                     </a>
                         <div id='submenu3' class="collapse sidebar-submenu">
-                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                            <a href="{{ route('rencana.index') }}" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Rencana Penilaian</span>
                             </a>
                             <a href="#" class="list-group-item list-group-item-action bg-dark text-white">

@@ -13,7 +13,7 @@
                 <form action="{{ route('rapot.show') }}" method="post">
                 @csrf
                     <strong>Mapel : {{ $mapel }}</strong>
-                    <input type="text" name="kelas" id="kelas" class="form-control" value="{{ $kelas }}" disabled>
+                    <input type="text" name="kelas" id="kelas" class="form-control" value="{{ $kelas }}" disabled       >
                     <input type="hidden" name="kelas" id="kelas" class="form-control" value="{{ $kelas }}">
                     <select name="jurusan" id="jurusan" class="form-control">
                     @foreach ($jurusan as $i => $jurusann)

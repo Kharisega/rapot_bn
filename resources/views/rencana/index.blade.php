@@ -39,19 +39,19 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-dark table-hover align-middle">
         <tr>
-            <th>No</th>
-            <th>ID Penilaian</th>
-            <th>Nama Penilaian</th>
-            <th>Kelas</th>
-            <th>Jurusan</th>
-            <th>Tanggal Penilaian</th>
-            <th>Jenis Penilaian</th>
-            <th>Tipe Penilaian</th>
-            <th>Mata Pelajaran</th>
-            <th>E-Mail</th>
-            <th @if( $data == 1) hidden @endif>Aksi</th>
+            <th scope="col">No</th>
+            <th scope="col">ID Penilaian</th>
+            <th scope="col">Nama Penilaian</th>
+            <th scope="col">Kelas</th>
+            <th scope="col">Jurusan</th>
+            <th scope="col">Tanggal Penilaian</th>
+            <th scope="col">Jenis Penilaian</th>
+            <th scope="col">Tipe Penilaian</th>
+            <th scope="col">Mata Pelajaran</th>
+            <th scope="col">E-Mail</th>
+            <th scope="col" @if( $data == 1) hidden @endif>Aksi</th>
         </tr>
         @foreach ($rencana as $i => $rencanaa)
             <tr>

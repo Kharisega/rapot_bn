@@ -12,4 +12,6 @@ class Guru extends Model
         'name',
         'password',
     ];
+    protected $fillable = ['file','keterangan'];
+    
 }
