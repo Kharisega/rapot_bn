@@ -17,7 +17,7 @@ class RencanaController extends Controller
      */
     public function admin()
     {
-        $rencana = Rencana::latest()->paginate(10);
+        $rencana = Rencana::latest();
         $data = 1;
         return view('rencana.index', [ 'rencana' => $rencana, 'data' => $data]);
     }
@@ -81,7 +81,7 @@ class RencanaController extends Controller
             'tipe_nilai' => 'required',
             'mapel' => 'required',
         ]);
-        
+
         $email = auth()->user()->email;
         $kelas = $request['kelas'];
         $nama_penilaian = $request['nama_penilaian'];

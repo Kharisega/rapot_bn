@@ -16,24 +16,20 @@
                 <div class="pull-right">
                     <form action="{{ route('rencana.cari') }}" method="post">
                     @csrf
-                        <label class="button">Kelas:</label>
-                            <select name="kelas" id="kelas" class="btn btn-primary mb-1">
+                            <select name="kelas" id="kelas" class="btn btn-dark mb-1">
                                 <option value="X">X</option>
                                 <option value="XI">XI</option>
                                 <option value="XII">XII</option>
-                            </select><br>
-
-                        <label class="button">Jurusan:</label>
-                            <select name="jurusan" id="jurusan" class="btn btn-primary mb-1">
+                            </select>
+                            <select name="jurusan" id="jurusan" class="btn btn-secondary mb-1">
                                 <option value="RPL">RPL</option>
                                 <option value="TKRO">TKRO</option>
                                 <option value="BKP">BKP</option>
                                 <option value="TB">TB</option>
                                 <option value="MM">MM</option>
-                            </select><br>
-                            <br>
-                        <a @if( $data == 1 ) href="{{ route('rencana.admin') }}" @else href="{{ route('rencana.index') }}" @endif class="btn btn-primary">Semua</a>
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                            </select>
+                        <a @if( $data == 1 ) href="{{ route('rencana.admin') }}" @else href="{{ route('rencana.index') }}" @endif class="btn btn-dark">Semua</a>
+                        <button type="submit" class="btn btn-secondary">Cari</button>
                     </form>
                 </div>
             <br>
@@ -45,7 +41,7 @@
         @endif
 
         <table class="table table-bordered">
-            <tr>
+            <tr class="table-success">
                 <th>No</th>
                 <th>ID Penilaian</th>
                 <th>Nama Penilaian</th>
@@ -84,5 +80,7 @@
                 </tr>
                 @endforeach
         </table>
+
     </div>
+
 @endsection

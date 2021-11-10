@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="mb-3">
-                <div class="-lg-20 margin-tb alert alert-primary text-center mt-3">
+                <div class="-lg-20 margin-tb alert text-left mt-3">
                     <div class="pull-left">
                         <h2>Data Siswa</h2>
                     </div>
-                    <div class="text-right">
+                    <div class="text-left">
                         <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
             </div>
         @endif
 
-    <table class="table table-success table-striped  align-middle">
-        <tr class="table-dark">
+    <table class="table table-bordered">
+        <tr class="table-success">
             <th scope="col">No</th>
             <th scope="col">ID Siswa</th>
             <th scope="col">Nama Siswa</th>
@@ -77,12 +77,12 @@
                 <td><img src="{{ $siswi->foto_siswa }}" alt="{{ $siswi->foto_siswa }}"></td>
                 <td>
                     <form action="{{ route('siswa.destroy', $siswi->id_siswa) }}" method="POST">
-                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm mb-9 w-50">Edit</a>
+                        <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm mb-9 w-5">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm mb-9 w-50">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm mb-9 w-5">Hapus</button>
 
                     </form>
                 </td>

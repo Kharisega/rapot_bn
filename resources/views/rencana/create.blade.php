@@ -1,5 +1,5 @@
-@extends('rencana.layouts')
-  
+@extends('layout.app')
+
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
@@ -11,7 +11,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -22,10 +22,10 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('rencana.store') }}" method="POST">
     @csrf
-  
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -51,7 +51,7 @@
                     <option value="MM">MM</option>
                     <option value="TKRO">TKRO</option>
                     <option value="TB">TB</option>
-                    <option value="BKP">XII</option>
+                    <option value="BKP">BKP</option>
                 </select>
             </div>
         </div>
@@ -83,6 +83,6 @@
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </div>
-   
+
 </form>
 @endsection
