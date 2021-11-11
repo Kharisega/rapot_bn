@@ -73,3 +73,25 @@
                                         ?>
                                     @endif
                                 @endfor
+
+
+
+function fungsitempat() {
+  var x = document.getElementById("lokasi1").value; // Value 1
+  var y = document.getElementById("lokasi2").value; // Value 0
+
+  var form_internal = document.getElementById("form_internal");
+  var form_eksternal = document.getElementById("form_eksternal");
+  if(document.getElementById("lokasi1").checked ) 
+  {
+    form_internal.style.display = "block";
+    form_eksternal.style.display = "none";
+    form_internal.setAttribut(required);
+  }
+  else if(document.getElementById("lokasi2").checked )
+  {
+    form_eksternal.style.display = "block";
+    form_internal.style.display = "none";
+    form_eksternal.setAttribut(required);
+  } 
+}

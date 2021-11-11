@@ -67,11 +67,18 @@ class SiswaController extends Controller
             'alamat_wali' => 'required',
             'nomor_telp_wali' => 'required',
             'pekerjaan_wali' => 'required',
-            'foto_siswa' => 'required',
+            'foto_siswa' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
+
+        $image = $request->file('foto_siswa');
+        $nameImage = $request->file('foto_siswa')->getClientOriginalName();
+
+        $thumbImage = Image::make($image->getRealPath())->resize(85, 85);
+        $thumbPath = public_path() . '/fotosiswa/' . $nameImage;
+        $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
         $user = User::create([
             'name' => $request['name'],
@@ -96,7 +103,31 @@ class SiswaController extends Controller
         ]);
 
         $user->assignRole('siswa')->get();
-        Siswa::create($request->all());
+        Siswa::create(
+            [
+                'nama_siswa' => $request['nama_siswa'],
+                'nisn' => $request['nisn'],
+                'ttl' => $request['ttl'],
+                'jk' => $request['jk'],
+                'agama' => $request['agama'],
+                'status_keluarga' => $request['status_keluarga'],
+                'status_anak' => $request['status_anak'],
+                'alamat_siswa' => $request['alamat_siswa'],
+                'tanggal_terima' => $request['tanggal_terima'],
+                'nomor_telp_siswa' => $request['nomor_telp_siswa'],
+                'sekolah_asal' => $request['sekolah_asal'],
+                'nama_ayah' => $request['nama_ayah'],
+                'nama_ibu' => $request['nama_ibu'],
+                'alamat_ortu' => $request['alamat_ortu'],
+                'nomor_telp_ortu' => $request['nomor_telp_ortu'],
+                'pekerjaan_ayah' => $request['pekerjaan_ayah'],
+                'pekerjaan_ibu' => $request['pekerjaan_ibu'],
+                'nama_wali' => $request['nama_wali'],
+                'alamat_wali' => $request['alamat_wali'],
+                'nomor_telp_wali' => $request['nomor_telp_wali'],
+                'pekerjaan_wali' => $request['pekerjaan_wali'],
+                'foto_siswa' => $nameImage,
+        ]);
         return redirect()->route('siswa.index')->with('success', "Data Berhasil di input");
         
     }
