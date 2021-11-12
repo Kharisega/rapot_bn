@@ -17,6 +17,7 @@ class CreateDataGuruTable extends Migration
             $table->increments('id_guru');
             $table->string('nip');
             $table->string('nama_guru');
+            $table->string('email');
             $table->string('jk_guru');
             $table->string('ttl_guru');
             $table->string('telp_guru');

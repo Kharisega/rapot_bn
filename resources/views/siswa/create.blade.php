@@ -39,10 +39,14 @@
             <div class="form-group">
                 <label>Kelas :</label>
                 <select name="kelas" id="kelas" class="form-control">
-                            <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
-                            <option value="X">X</option>
-                            <option value="XI">XI</option>
-                            <option value="XII">XII</option>
+                <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
+                <!-- <option value="X">X</option>
+                <option value="XI">XI</option>
+                <option value="XII">XII</option>
+                <option value="">- Pilih Salah Satu -</option> -->
+                    @foreach ($kelas as $i => $kelass)
+                        <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -50,12 +54,16 @@
             <div class="form-group">
                 <label>Kompetensi Keahlian :</label>
                 <select name="jurusan" id="jurusan" class="form-control">
-                            <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
-                            <option value="RPL">RPL</option>
-                            <option value="BKP">BKP</option>
-                            <option value="TKRO">TKRO</option>
-                            <option value="TB">TB</option>
-                            <option value="MM">MM</option>
+                <option selected class="form-select" aria-label="Disabled select example" disabled>- Pilih Salah Satu -</option>
+                <!-- <option value="RPL">RPL</option>
+                <option value="BKP">BKP</option>
+                <option value="TKRO">TKRO</option>
+                <option value="TB">TB</option>
+                <option value="MM">MM</option>
+                    <option value="">- Pilih Salah Satu -</option> -->
+                    @foreach ($jurusan as $u => $jurusann)
+                        <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -109,7 +117,7 @@
                 <option value="Islam">Islam</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Budha">Budha</option>
-                <option value="Kong Hu Chu">Kristen</option>
+                <option value="Kong Hu Chu">Kong Hu Chu</option>
                 </select>
             </div>
         </div>

@@ -53,6 +53,8 @@ Route::middleware('role:admin')->resource('guru', 'GuruController');
 Route::middleware('role:admin')->resource('siswa', 'SiswaController');
 Route::middleware('role:admin')->resource('mapel', 'MapelController');
 Route::middleware('role:admin')->resource('tahun', 'TahunController');
+Route::middleware('role:admin')->resource('jurusan', 'JurusanController');
+Route::middleware('role:admin')->resource('kelas', 'KelasController');
 Route::middleware('role:admin')->resource('semester', 'SemesterController');
 Route::middleware('role:admin')->get('admin', 'AdminController@index')->name('admin');
 Route::middleware('role:admin')->post('admin/tambah', 'AdminController@create')->name('admin.create');
