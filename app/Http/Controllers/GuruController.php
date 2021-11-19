@@ -24,7 +24,7 @@ class GuruController extends Controller
             ->join('mapel', 'guru_has_mapel.id_mapel', '=', 'mapel.id_mapel')
             ->join('guru_has_kelas', 'guru.id_guru', '=', 'guru_has_kelas.id_guru')
             ->join('kelas', 'guru_has_kelas.id_kelas', '=', 'kelas.id_kelas')
-            ->select(DB::raw('guru.*, GROUP_CONCAT(nama_mapel) as nama_mapel, GROUP_CONCAT(kelas) as kelas'))
+            ->select(DB::raw('guru.*, GROUP_CONCAT(DISTINCT(nama_mapel)) as nama_mapel, GROUP_CONCAT(DISTINCT(kelas)) as kelas'))
             ->groupBy('id_guru', 
                     'nip',
                     'nama_guru',

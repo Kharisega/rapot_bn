@@ -48,7 +48,7 @@
                 <td>{{ $gur->alamat_guru }}</td>
                 <td><img src="{{url('/fotoguru/') . '/' . $gur->foto_guru}}" alt="{{ $gur->foto_guru }}"></td>
                 <td>{{ $gur->nama_mapel }}</td>
-                <td>{{ $gur->kelas }}</td>
+                <td>{{ $gur->kelas }}</td>  
                 <td>{{ $gur->status }}</td>
                 <td>{{ $gur->kelas_bimbingan }}</td>
                 <td>
