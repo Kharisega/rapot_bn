@@ -62,10 +62,22 @@ class RencanaController extends Controller
     public function create()
     {
         $email = auth()->user()->email;
-        $kelas = DB::table('guru')->where('email', $email)->value('kelas');
+        $id_guru = DB::table('guru')->where('email', $email)->value('id_guru');
         $jurusan = DB::table('jurusan')->get();
         $jenis_nilai = DB::table('jenis_nilai')->get();
-        $mapel = DB::table('guru')->where('email', $email)->value('mapel');
+        $id_mapel = DB::table('guru_has_mapel')->select('id_mapel')->where('id_guru', $id_guru)->get();
+        $id_kelas = DB::table('guru_has_kelas')->select('id_kelas')->where('id_guru', $id_guru)->get();
+
+        $mapel = [];
+        foreach ($id_mapel as $key => $mapell) {
+            array_push($mapel, DB::table('mapel')->where('id_mapel', $mapell->id_mapel)->value('nama_mapel'));
+        }
+
+        $kelas = [];
+        foreach ($id_kelas as $key => $kelass) {
+            array_push($kelas, DB::table('kelas')->where('id_kelas', $kelass->id_kelas)->value('kelas'));
+        }
+        
         return view('rencana.create', [
             'kelas' => $kelas,
             'jurusan' => $jurusan,

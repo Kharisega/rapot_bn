@@ -118,3 +118,8 @@
 {
     margin-left: auto;
 }
+
+input[type="checkbox"] {
+    appearance: checkbox !important;
+    display: inline-block;
+}

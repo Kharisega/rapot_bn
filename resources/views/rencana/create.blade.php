@@ -36,8 +36,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kelas :</strong>
-                <input type="text" name="kelas" value="{{ $kelas }}" class="form-control" placeholder="kelas" Disabled>
-                <input type="hidden" name="kelas" value="{{ $kelas }}">
+                <select name="kelas" id="kelas" class="form-control">
+                        @foreach ($kelas as $mp => $kelass)
+                            <option value="{{ $kelass }}">{{ $kelass }}</option>
+                        @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -53,8 +56,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Mata Pelajaran :</strong>
-                <input type="text" name="mapel" value="{{ $mapel }}" class="form-control" placeholder="Mata Pelajaran" disabled>
-                <input type="hidden" name="mapel" value="{{ $mapel }}">
+                <select name="mapel" id="mapel" class="form-control">
+                        @foreach ($mapel as $mp => $mapell)
+                            <option value="{{ $mapell }}">{{ $mapell }}</option>
+                        @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -62,9 +62,7 @@
                 <td>{{ $rencanaa->email }}</td>
                 <td>
                     
-                    <a href="{{ route('nilai.create',$rencanaa->id_penilaian) }}" class="btn btn-primary">Input</a>
-                    <a href="{{ route('lihat.show',$rencanaa->id_penilaian) }}" class="btn btn-primary">Show</a>
-                    <a href="{{ route('ubah.edit',$rencanaa->id_penilaian) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('nilai.create',$rencanaa->id_penilaian) }}" class="btn btn-primary">Cek Nilai</a>
 
                     <!-- <form action="{{ route('rencana.edit', $rencanaa->id_penilaian) }}" method="POST">
                         <a href="{{ route('rencana.show',$rencanaa->id_penilaian) }}" class="btn btn-primary">Show</a>
