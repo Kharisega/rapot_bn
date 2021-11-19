@@ -64,6 +64,8 @@ class RencanaController extends Controller
         $email = auth()->user()->email;
         $id_guru = DB::table('guru')->where('email', $email)->value('id_guru');
         $jurusan = DB::table('jurusan')->get();
+        $tahun = DB::table('tahun_ajaran')->get();
+        $semester = DB::table('semester')->get();
         $jenis_nilai = DB::table('jenis_nilai')->get();
         $id_mapel = DB::table('guru_has_mapel')->select('id_mapel')->where('id_guru', $id_guru)->get();
         $id_kelas = DB::table('guru_has_kelas')->select('id_kelas')->where('id_guru', $id_guru)->get();
@@ -83,6 +85,8 @@ class RencanaController extends Controller
             'jurusan' => $jurusan,
             'jenis_nilai' => $jenis_nilai,
             'mapel' => $mapel,
+            'tahun' => $tahun,
+            'semester' => $semester,
         ]);
     }
 
@@ -102,6 +106,8 @@ class RencanaController extends Controller
             'jenis_nilai' => 'required',
             'tipe_nilai' => 'required',
             'mapel' => 'required',
+            'tahun_ajaran' => 'required',
+            'semester' => 'required',
         ]);
         
         $email = auth()->user()->email;
@@ -112,6 +118,8 @@ class RencanaController extends Controller
         $jenis_nilai = $request['jenis_nilai'];
         $tipe_nilai = $request['tipe_nilai'];
         $mapel = $request['mapel'];
+        $tahun_ajaran = $request['tahun_ajaran'];
+        $semester = $request['semester'];
 
         $input = DB::table('penilaian')->insert([
             'nama_penilaian' => $nama_penilaian,
@@ -122,6 +130,8 @@ class RencanaController extends Controller
             'tipe_nilai' => $tipe_nilai,
             'mapel' => $mapel,
             'email' => $email,
+            'tahun_ajaran' => $tahun_ajaran,
+            'semester' => $semester,
         ]);
 
         if ($jenis_nilai == 'Penilaian Harian') {
@@ -136,6 +146,8 @@ class RencanaController extends Controller
                 'tipe_nilai' => $tipe_nilai,
                 'mapel' => $mapel,
                 'email' => $email,
+                'tahun_ajaran' => $tahun_ajaran,
+                'semester' => $semester,
             ]);
 
         }
@@ -183,6 +195,8 @@ class RencanaController extends Controller
             'tipe_nilai' => 'required',
             'email' => 'required',
             'mapel' => 'required',
+            'tahun_ajaran' => 'required',
+            'semester' => 'required',
         ]);
         $rencana->update($request->all());
         return redirect()->route('rencana.index')->with('success', 'Rencana Penilaian berhasil diubah');

@@ -38,16 +38,16 @@ class RapotController extends Controller
 
     public function show(Request $request)
     {
-        dd($request);
+        // dd($request);
         $email = auth()->user()->email;
         $mapel = $request->mapel;
         $kelas = $request->kelas;
+        $tahun = $request->tahun;
+        $semester = $request->semester;
         $id_kelas = DB::table('kelas')->where('kelas', $kelas)->value('id_kelas');
         $jurusan = $request->jurusan;
         $id_jurusan = DB::table('jurusan')->where('nama', $jurusan)->value('id_jurusan');
-        $tahun = $request->tahun;
         $id_tahun = DB::table('tahun_ajaran')->where('tahun_ajaran', $tahun)->value('id_tahun');
-        $semester = $request->semester;
         $id_semester = DB::table('semester')->where('semester', $semester)->value('id_semester');
 
         $siswa = DB::table('student')
@@ -68,7 +68,9 @@ class RapotController extends Controller
                 ['penilaian.jenis_nilai', 'Tugas Harian'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
             ])
             ->get();
 
@@ -82,7 +84,9 @@ class RapotController extends Controller
                 ['penilaian.jenis_nilai', 'Penilaian Harian'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
             ])
             ->get();    
 
@@ -94,7 +98,9 @@ class RapotController extends Controller
                 [['penilaian.jenis_nilai', 'Remedial'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
             ])
             ->get();
 
@@ -106,7 +112,9 @@ class RapotController extends Controller
                 [['penilaian.jenis_nilai', 'Remedial'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
                 ])
             ->count();
 
@@ -118,7 +126,9 @@ class RapotController extends Controller
                 [['penilaian.jenis_nilai', 'Penilaian Tengah Semester'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
                 ])
             ->get();
 
@@ -130,7 +140,9 @@ class RapotController extends Controller
                 [['penilaian.jenis_nilai', 'Penilaian Akhir Semester'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
                 ])
             ->get();
 
@@ -142,7 +154,9 @@ class RapotController extends Controller
                 [['penilaian.jenis_nilai', 'Keterampilan'],
                 ['penilaian.kelas', $kelas],
                 ['penilaian.jurusan', $jurusan],
-                ['penilaian.mapel', $mapel]
+                ['penilaian.mapel', $mapel],
+                ['penilaian.tahun_ajaran', $tahun],
+                ['penilaian.semester', $semester],
                 ])
             ->get();
 
@@ -150,6 +164,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Tugas Harian']
         ])->count();
 
@@ -159,6 +175,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Penilaian Harian']
         ])->count();
 
@@ -166,6 +184,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Remedial']
         ])->count();
 
@@ -173,6 +193,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Keterampilan']
         ])->count();
 
@@ -180,6 +202,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Penilaian Tengah Semester']
         ])->count();
 
@@ -187,6 +211,8 @@ class RapotController extends Controller
             ['kelas', $kelas],
             ['jurusan', $jurusan],
             ['mapel', $mapel],
+            ['tahun_ajaran', $tahun],
+            ['semester', $semester],
             ['jenis_nilai', 'Penilaian Akhir Semester']
         ])->count();
 

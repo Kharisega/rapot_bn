@@ -50,6 +50,8 @@
             <th>Jenis Penilaian</th>
             <th>Tipe Penilaian</th>
             <th>Mata Pelajaran</th>
+            <th>Tahun Ajaran</th>
+            <th>Semester</th>
             <th>E-Mail</th>
             <th @if( $data == 1) hidden @endif>Aksi</th>
         </tr>
@@ -64,6 +66,8 @@
                 <td>{{ $rencanaa->jenis_nilai }}</td>
                 <td>{{ $rencanaa->tipe_nilai }}</td>
                 <td>{{ $rencanaa->mapel }}</td>
+                <td>{{ $rencanaa->tahun_ajaran }}</td>
+                <td>{{ $rencanaa->semester }}</td>
                 <td>{{ $rencanaa->email }}</td>
                 <td @if( $data == 1) hidden @endif>
                     <form action="{{ route('rencana.destroy', $rencanaa->id_penilaian) }}" method="POST">

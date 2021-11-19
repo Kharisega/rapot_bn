@@ -88,6 +88,26 @@
                 </select>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Tahun Ajaran :</strong>
+                <select name="tahun_ajaran" id="tahun_ajaran" class="form-control">
+                    @foreach ($tahun as $thn => $tahunn)
+                        <option value="{{ $tahunn->tahun_ajaran }}">{{ $tahunn->tahun_ajaran }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Semester :</strong>
+                <select name="semester" id="semester" class="form-control">
+                    @foreach ($semester as $smstr => $semesterr)
+                        <option value="{{ $semesterr->semester }}">{{ $semesterr->semester }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
