@@ -24,7 +24,7 @@
     </div>
 @endif
 
-<form action="{{ route('guru.store') }}" method="POST">
+<form action="{{ route('guru.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
      <div class="row">
@@ -83,40 +83,24 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="foto">Foto :</label>
-                <input type="file" name="foto_guru" class="form-control" id="foto">
+                <label for="image">Foto :</label>
+                <input type="file" name="image" id="image" class="form-control-file">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="mapel">Mata Pelajaran :</label>
-                <select class="form-control" id="mapel" name="mapel">
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Mata Pelajaran</option>
-                <option value='Sejarah Indonesia'>Sejarah Indonesia</option>
-                <option value='Matematika'>Matematika</option>
-                <option value='Bahasa Inggris'>Bahasa Inggris</option>
-                <option value='Bahasa Jawa'>Bahasa Jawa</option>
-                <option value='Bahasa Indonesia'>Bahasa Indonesia</option>
-                <option value='PPKn'>PPKn</option>
-                <option value='PKWU'>PKWU</option>
-                <option value='Pendidikan Agama Kristen'>Pendidikan Agama Kristen</option>
-                <option value='Pendidikan Agama Katolik'>Pendidikan Agama Katolik</option>
-                <option value='Pendidikan Agama Islam'>Pendidikan Agama Islam</option>
-                <option value='Seni Budaya'>Seni Budaya</option>
-                <option value='Fisika'>Fisika</option>
-                <option value='Kimia'>Kimia</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label for="kelas">Kelas yang Diampu :</label>
-                <select class="form-control" name='kelas' id="kelas" required>
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Kelas yang Diampu</option>
-                @foreach ($kelas as $i => $kelass)
-                    <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                <label for="mapel">Mata Pelajaran :</label> <br>
+                @foreach ($mapel as $ul => $mapell)
+                <input type="checkbox" class="form-check-input" name="mapel[]" value='{{$mapell->nama_mapel}}'>{{$mapell->nama_mapel}}<br>
                 @endforeach
-                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="kelas">Kelas yang Diampu :</label> <br>
+                @foreach ($kelas as $i => $kelass)
+                <input type="checkbox" class="form-check-input" name="kelas[]" value='{{$kelass->kelas}}'>{{$kelass->kelas}}<br>
+                @endforeach
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -140,7 +124,7 @@
                         <option value="{{ $kelasss->kelas . " " . $jurusann->nama }}">{{ $kelasss->kelas . " " . $jurusann->nama }}</option>
                     @endforeach
                 @endforeach
-                </select>
+            </select>
             </div>
             </div>
         </div>

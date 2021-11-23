@@ -73,3 +73,118 @@
                                         ?>
                                     @endif
                                 @endfor
+
+
+
+function fungsitempat() {
+  var x = document.getElementById("lokasi1").value; // Value 1
+  var y = document.getElementById("lokasi2").value; // Value 0
+
+  var form_internal = document.getElementById("form_internal");
+  var form_eksternal = document.getElementById("form_eksternal");
+  if(document.getElementById("lokasi1").checked ) 
+  {
+    form_internal.style.display = "block";
+    form_eksternal.style.display = "none";
+    form_internal.setAttribut(required);
+  }
+  else if(document.getElementById("lokasi2").checked )
+  {
+    form_eksternal.style.display = "block";
+    form_internal.style.display = "none";
+    form_eksternal.setAttribut(required);
+  } 
+}
+
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Nama Siswa :</strong>
+                <p>{{ $siswaa->nama_siswa }}</p>
+                <input type="hidden" value="{{ $siswaa->nama_siswa }}" name="nama_siswa[]">
+                <input type="hidden" value="{{ ++$i }}" name="no_id[]">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Besar Nilai :</strong>
+                <input type="text" name="besar_nilai[]" class="form-control" placeholder="Besar Nilai">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Keterangan Nilai :</strong>
+                <input type="text" name="ket_nilai[]" class="form-control" placeholder="Keterangan Nilai">
+            </div>
+
+
+
+
+            INSERT INTO `data_siswa` (`id_siswa`, `nama_siswa`, `nisn`, `nis`, `ttl`, `jk`, `agama`, `status_keluarga`, `status_anak`, `alamat_siswa`, `nomor_telp_siswa`, `sekolah_asal`, `tanggal_terima`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `nomor_telp_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `nomor_telp_wali`, `pekerjaan_wali`, `foto_siswa`, `created_at`, `updated_at`) VALUES (NULL, 'Solideo', '01543146', '2134641325', 'Kupang, 23 Mei 2021', 'Perempuan', 'Kristen', 'Anak Kandung', 'Anak ke-2', 'Jl. Robyong', '0575469842165', 'SMP Kupang 02', '12-11-2021', 'Karmin', 'Rika', 'Jl. Kupang 12', '0894546821385', 'Buruh', 'Buruh', '-', '-', '-', '-', 'lisa.jpg', NULL, NULL);
+
+
+            
+      <div class="col-lg-1">
+        </div>
+       <div class="col-lg-2">
+      <div class="card border-0">
+      
+        <div class="card text-white bg-dark mb-3">
+          <!-- <img src="{{ asset ('pictures/img4.jpg') }}" class="img-luid" alt="" style=" margin-left : -5px"> -->
+        </div>
+      </div>
+      <h6 class="text-center">TKRO</h6>
+      <h6 class="text-center"></h6>
+      </div>
+
+
+      <div class="col-lg-2">
+        <div class="card border-0 ">
+        
+          <div class="card text-white bg-dark mb-3">
+            <!-- <img src="{{ asset ('pictures/img5.jpg') }}" class="img-luid" alt="" > -->
+          </div>
+        </div>
+        <h6 class="text-center">MM</h6>
+        <h6 class="text-center"></h6>
+        </div>
+
+
+        <div class="col-lg-2">
+          <div class="card border-0">
+          
+            <div class="card text-white bg-dark mb-3">
+              <!-- <img src="{{ asset ('pictures/img7.jpg') }}" class="img-luid" alt=""> -->
+            </div>
+          </div>
+          <h6 class="text-center">TB</h6>
+          <h6 class="text-center"></h6>
+          </div>
+
+          
+        <div class="col-lg-2">
+          <div class="card border-0">
+          
+            <div class="card text-white bg-dark mb-3 mr-12">
+              <!-- <img src="{{ asset ('pictures/img6.jpg') }}" class="img-luid" alt=""> -->
+            </div>
+          </div>
+          <h6 class="text-center">BKP</h6>
+          <h6 class="text-center"></h6>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="card border-0">
+            
+              <div class="card text-white bg-dark mb-3">
+                <!-- <img src="{{ asset ('pictures/img2.jpg') }}" class="img-luid" alt=""> -->
+              </div>
+            </div>
+            <h6 class="text-center">RPL</h6>
+            <h6 class="text-center"></h6>
+            </div>
+            <div class="col-lg-1">
+      
+            </div>      
+     </div>
+   </div>

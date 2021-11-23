@@ -27,7 +27,7 @@
     @csrf
     @method('PUT')
 
-     <div class="row">
+     <div class="row ml-4">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="nip">NIP :</label>
@@ -43,10 +43,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="jk">Jenis Kelamin :</label>
-                <select name="jk_guru" class="form-control" value="{{ $guru->jk_guru }}"  id="jk">
+                <select name="jk_guru" class="form-control" id="jk">
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Jenis Kelamin</option>
-                <option value="Laki-Laki">Laki-Laki</option>
-                <option value="Perempuan">Perempuan</option>
+                <option value="Laki-Laki" @if($guru->jk_guru == 'Laki-laki') selected @endif>Laki-Laki</option>
+                <option value="Perempuan" @if($guru->jk_guru == 'Perempuan') selected @endif>Perempuan</option>
                 </select>
             </div>
         </div>
@@ -71,74 +71,52 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="foto">Foto :</label>
-                <input type="file" name="foto_guru" class="form-control" id="foto">
+                <input type="file" name="image" value="{{ old('foto_guru', $guru->foto_guru) }}" class="form-control" id="foto">
                 <!-- <input type="hidden" name="foto_guru" value="{{ old('foto_guru', $guru->foto_guru) }}"> -->
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 ml-4">
             <div class="form-group">
-                <label for="mapel">Mata Pelajaran :</label>
-                <select id="mapel" class="form-control" value="{{ $guru->mapel }}" name='mapel' required>
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Mata Pelajaran</option>
-                <option >Sejarah Indonesia</option>
-                <option >Matematika</option>
-                <option >Bahasa Inggris</option>
-                <option >Bahasa Jawa</option>
-                <option >Bahasa Indonesia</option>
-                <option >PPKn</option>
-                <option >PKWU</option>
-                <option >Pendidikan Agama Kristen</option>
-                <option >Pendidikan Agama Katolik</option>
-                <option >Pendidikan Agama Islam</option>
-                <option >Seni Budaya</option>
-                <option >Fisika</option>
-                <option >Kimia</option>
-                </select>
+                <label for="mapel">Mata Pelajaran :</label><br>
+                @foreach ($mapel as $ul => $mapell)
+                    @foreach ($mapelku as $mplku => $mmapel)
+                        <input type="checkbox" class="form-check-input" name="mapel[]" value='{{$mapell->nama_mapel}}' {{  ($mapelku[$mplku] == $mapell->nama_mapel ? ' checked' : '') }}>{{$mapell->nama_mapel}}<br>
+                    @endforeach
+                @endforeach
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 ml-4">
             <div class="form-group">
-                <label for="kelas">Kelas yang Diampu :</label>
-                <select id='kelas' class="form-control" value="{{ $guru->kelas }}" name='kelas' required>
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Kelas yang Diampu</option>
-                <option >X</option>
-                <option >XI</option>
-                <option >XII</option>
-                </select>
+                <label for="kelas">Kelas yang Diampu :</label> <br>
+                @foreach ($kelas as $i => $kelass)
+                    @foreach ($kelasku as $klsku => $kkelas)
+                        <input type="checkbox" class="form-check-input" name="kelas[]" value='{{$kelass->kelas}}' {{  ($kelasku[$klsku] == $kelass->kelas ? ' checked' : '') }}>{{$kelass->kelas}}<br>
+                    @endforeach
+                @endforeach
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="status">Status :</label>
-                <select id="status" class="form-control" value="{{ $guru->status }}" name='status' required>
-                <option selected class="form-select" aria-label="Disabled select example" disabled>Status</option>
-                <option >Guru Biasa</option>
-                <option >Wali Kelas</option>
+                <select id="status" class="form-control" name='status' required>
+                <option class="form-select" aria-label="Disabled select example" disabled>Status</option>
+                <option @if($guru->status == 'Guru Biasa') selected @endif>Guru Biasa</option>
+                <option @if($guru->status == 'Wali Kelas') selected @endif>Wali Kelas</option>
                 </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="kelasbimbingan">Kelas Bimbingan :</label>
-                <select id="kelasbimbingan" class="form-control" value="{{ $guru->kelas_bimbingan }}" name='kelas_bimbingan'  required>
+                <select  class="form-control" name='kelas_bimbingan' id="kelas_bimbingan" required>
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Kelas Bimbingan</option>
-                <option>-</option>
-                <option >X RPL</option>
-                <option >X BKP</option>
-                <option >X TKRO</option>
-                <option >X TB</option>
-                <option >X MM</option>
-                <option >XI RPL</option>
-                <option >XI BKP</option>
-                <option >XI TKRO</option>
-                <option >XI TB</option>
-                <option >XI MM</option>
-                <option >XII RPL</option>
-                <option >XII BKP</option>
-                <option >XII TKRO</option>
-                <option >XII TB</option>
-                <option >XII MM</option>
-                </select>
+                <option value="-" @if($guru->kelas_bimbingan == '-') selected @endif>-</option>
+                @foreach ($kelas as $u => $kelasss)
+                    @foreach ($jurusan as $e => $jurusann)
+                        <option value="{{ $kelasss->kelas . " " . $jurusann->nama }}" @if($guru->kelas_bimbingan == $kelasss->kelas . " " . $jurusann->nama) selected @endif>{{ $kelasss->kelas . " " . $jurusann->nama }}</option>
+                    @endforeach
+                @endforeach
+            </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

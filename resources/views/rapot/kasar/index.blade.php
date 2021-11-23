@@ -13,9 +13,17 @@
             <div class="pull-left">
                 <form action="{{ route('rapot.show') }}" method="post">
                 @csrf
-                    <strong>Mapel : {{ $mapel }}</strong>
-                    <input type="hidden" name="kelas" id="kelas" class="btn btn-secondary mb-1" value="{{ $kelas }}">
-                    <select name="jurusan" id="jurusan" class="btn btn-secondary mb-1">
+                    <select name="kelas" id="kelas" class="form-control">
+                        @foreach ($kelas as $mp => $kelass)
+                            <option value="{{ $kelass }}">{{ $kelass }}</option>
+                        @endforeach
+                    </select>
+                    <select name="mapel" id="mapel" class="form-control">
+                        @foreach ($mapel as $mp => $mapell)
+                            <option value="{{ $mapell }}">{{ $mapell }}</option>
+                        @endforeach
+                    </select>
+                    <select name="jurusan" id="jurusan" class="form-control">
                     @foreach ($jurusan as $i => $jurusann)
                         <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
                     @endforeach

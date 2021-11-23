@@ -36,8 +36,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kelas :</strong>
-                <input type="text" name="kelas" value="{{ $kelas }}" class="form-control" placeholder="kelas" Disabled>
-                <input type="hidden" name="kelas" value="{{ $kelas }}">
+                <select name="kelas" id="kelas" class="form-control">
+                        @foreach ($kelas as $mp => $kelass)
+                            <option value="{{ $kelass }}">{{ $kelass }}</option>
+                        @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -53,8 +56,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Mata Pelajaran :</strong>
-                <input type="text" name="mapel" value="{{ $mapel }}" class="form-control" placeholder="Mata Pelajaran" disabled>
-                <input type="hidden" name="mapel" value="{{ $mapel }}">
+                <select name="mapel" id="mapel" class="form-control">
+                        @foreach ($mapel as $mp => $mapell)
+                            <option value="{{ $mapell }}">{{ $mapell }}</option>
+                        @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -78,6 +84,26 @@
                 <select name="jenis_nilai" id="jenis_nilai" class="form-control">
                     @foreach ($jenis_nilai as $u => $jenis_nilaii)
                         <option value="{{ $jenis_nilaii->jenis_nilai }}">{{ $jenis_nilaii->jenis_nilai }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Tahun Ajaran :</strong>
+                <select name="tahun_ajaran" id="tahun_ajaran" class="form-control">
+                    @foreach ($tahun as $thn => $tahunn)
+                        <option value="{{ $tahunn->tahun_ajaran }}">{{ $tahunn->tahun_ajaran }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Semester :</strong>
+                <select name="semester" id="semester" class="form-control">
+                    @foreach ($semester as $smstr => $semesterr)
+                        <option value="{{ $semesterr->semester }}">{{ $semesterr->semester }}</option>
                     @endforeach
                 </select>
             </div>

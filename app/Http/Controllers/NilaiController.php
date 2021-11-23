@@ -25,8 +25,10 @@ class NilaiController extends Controller
      */
     public function index()
     {
+        $kelas = DB::table('kelas')->get();
+        $jurusan = DB::table('jurusan')->get();
         $rencana = DB::table('penilaian')->where('email', auth()->user()->email)->paginate();
-        return view('nilai.index', ['rencana' => $rencana]);
+        return view('nilai.index', ['rencana' => $rencana, 'kelas' => $kelas, 'jurusan' => $jurusan]);
     }
 
     /**
@@ -47,7 +49,16 @@ class NilaiController extends Controller
             ['id_jurusan', $jurusan],
         ])->get();
 
-        return view('nilai.create', ['siswa' => $siswa, 'rencana' => $rencana]);
+        $nilai = DB::table('penilaian')
+            ->leftJoin('tabel_nilai', 'penilaian.id_penilaian', '=', 'tabel_nilai.id_penilaian')
+            ->leftJoin('data_siswa', 'tabel_nilai.id_siswa', '=', 'data_siswa.id_siswa')
+            ->select('tabel_nilai.*', 'penilaian.*', 'data_siswa.nama_siswa')
+            ->where('penilaian.id_penilaian', $request)
+            ->get();
+
+        // dd($siswa);
+        // dd([$nilai, $siswa]);
+        return view('nilai.create', ['siswa' => $siswa, 'rencana' => $rencana, 'nilai' => $nilai,]);
     }
 
     /**
@@ -67,23 +78,54 @@ class NilaiController extends Controller
 
 
         for ($i=0; $i < count($no_id); $i++) { 
-
             $id_siswa = DB::table('data_siswa')->where('nama_siswa', $nama_siswa[$i])->value('id_siswa');
             $id_guru = DB::table('guru')->where('email', $email)->value('id_guru');
+            $processexist = DB::table('tabel_nilai')
+                ->where([
+                    ['id_penilaian', $id_penilaian],
+                    ['id_siswa', $id_siswa],
+                    ['id_guru', $id_guru]
+                ])
+                ->first();
             
-            $datasave = [
-                'id_penilaian'=>$id_penilaian,
-                'id_siswa'=>$id_siswa,
-                'besar_nilai'=>$besar_nilai[$i],
-                'ket_nilai'=>$ket_nilai[$i],
-                'id_guru'=>$id_guru,
-            ];
+            if($processexist == null){
+                $id_siswa = DB::table('data_siswa')->where('nama_siswa', $nama_siswa[$i])->value('id_siswa');
+                $id_guru = DB::table('guru')->where('email', $email)->value('id_guru');
+                
+                $datasave = [
+                    'id_penilaian'=>$id_penilaian,
+                    'id_siswa'=>$id_siswa,
+                    'besar_nilai'=>$besar_nilai[$i],
+                    'ket_nilai'=>$ket_nilai[$i],
+                    'id_guru'=>$id_guru,
+                ];
 
-            $insert = DB::table('tabel_nilai')->insert($datasave);
+                $insert = DB::table('tabel_nilai')->insert($datasave);
+            } else {
+                $id_siswa = DB::table('data_siswa')->where('nama_siswa', $nama_siswa[$i])->value('id_siswa');
+                $id_guru = DB::table('guru')->where('email', $email)->value('id_guru');
+                
+                $datasave = [
+                    'id_penilaian'=>$id_penilaian,
+                    'id_siswa'=>$id_siswa,
+                    'besar_nilai'=>$besar_nilai[$i],
+                    'ket_nilai'=>$ket_nilai[$i],
+                    'id_guru'=>$id_guru,
+                ];
+
+                
+                Nilai::where([
+                    ['id_siswa', $id_siswa],
+                    ['id_penilaian', $id_penilaian],
+                ])->update($datasave);
+            }
+            
         }
 
         $rencana = DB::table('penilaian')->where('email', auth()->user()->email)->paginate();
-        return view('nilai.index', ['rencana' => $rencana]);
+        $kelas = DB::table('kelas')->get();
+        $jurusan = DB::table('jurusan')->get();
+        return view('nilai.index', ['rencana' => $rencana, 'kelas' => $kelas, 'jurusan' => $jurusan]);
     }
 
     /**

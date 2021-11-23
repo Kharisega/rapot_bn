@@ -13,6 +13,7 @@
                 <div class="pull-left">
                 <form action="{{ route('nilai.cari') }}" method="post">
                 @csrf
+<<<<<<< HEAD
                     <select name="kelas" id="kelas" class="btn btn-secondary mb-1">
                         <option value="X">X</option>
                         <option value="XI">XI</option>
@@ -24,6 +25,17 @@
                         <option value="BKP">BKP</option>
                         <option value="TB">TB</option>
                         <option value="MM">MM</option>
+=======
+                    <select name="kelas" id="kelas" class="form-control">
+                        @foreach ($kelas as $u => $kelass)
+                            <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                        @endforeach
+                    </select>
+                    <select name="jurusan" id="jurusan" class="form-control">
+                        @foreach ($jurusan as $u => $jurusann)
+                            <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
+                        @endforeach
+>>>>>>> 3f343cc9f2a57346850a0b9ee76c05127a16a338
                     </select>
                     <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary">Semua</a>
                     <button type="submit" class="btn btn-block btn-primary">Cari</button>
@@ -65,9 +77,7 @@
                 <td>{{ $rencanaa->email }}</td>
                 <td>
 
-                    <a href="{{ route('nilai.create',$rencanaa->id_penilaian) }}" class="btn btn-primary">Input</a>
-                    <a href="{{ route('lihat.show',$rencanaa->id_penilaian) }}" class="btn btn-success">Show</a>
-                    <a href="{{ route('ubah.edit',$rencanaa->id_penilaian) }}" class="btn btn-danger">Edit</a>
+                    <a href="{{ route('nilai.create',$rencanaa->id_penilaian) }}" class="btn btn-primary">Cek Nilai</a>
 
                     <!-- <form action="{{ route('rencana.edit', $rencanaa->id_penilaian) }}" method="POST">
                         <a href="{{ route('rencana.show',$rencanaa->id_penilaian) }}" class="btn btn-primary">Show</a>

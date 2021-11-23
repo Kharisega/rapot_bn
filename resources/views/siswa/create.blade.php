@@ -24,7 +24,7 @@
     </div>
 @endif
 
-<form action="{{ route('siswa.store') }}" method="POST">
+<form action="{{ route('siswa.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
      <div class="row">
@@ -125,8 +125,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="foto">Foto Siswa :</label>
-                <input type="file" id="foto" name="foto_siswa" class="form-control">
+                <label for="foto_siswa">Foto Siswa :</label>
+                <input type="file" name="foto_siswa" id="foto_siswa" class="form-control-file">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -23,12 +23,36 @@
         </ul>
     </div>
 @endif
+<?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+
+	// variabel pecahkan 0 = tanggal
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tahun
+
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}?>
    @foreach ($rencana as $u => $rencanaa)
         <p>ID Penilaian : {{ $rencanaa->id_penilaian }}</p>
         <p>Nama Penilaian : {{ $rencanaa->nama_penilaian }}</p>
         <p>Kelas : {{ $rencanaa->kelas }}</p>
         <p>Jurusan : {{ $rencanaa->jurusan }}</p>
-        <p>Tanggal Pelaksanaan : {{ $rencanaa->tgl_penilaian }}</p>
+        <p>Tanggal Pelaksanaan : {{ tgl_indo($rencanaa->tgl_penilaian) }}</p>
         <p>Jenis Penilaian : {{ $rencanaa->jenis_nilai }}</p>
         <p>Tipe Penilaian : {{ $rencanaa->tipe_nilai }}</p>
         <p>Mata Pelajaran : {{ $rencanaa->mapel }}</p>
@@ -41,29 +65,58 @@
     <input type="hidden" name="id_penilaian" value="{{ $rencanaa->id_penilaian }}">
     <input type="hidden" name="email" value="{{ $rencanaa->email }}">
     <div class="row">
-    @foreach ($siswa as $i => $siswaa)
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nama Siswa :</strong>
-                <p>{{ $siswaa->nama_siswa }}</p>
-                <input type="hidden" value="{{ $siswaa->nama_siswa }}" name="nama_siswa[]">
-                <input type="hidden" value="{{ ++$i }}" name="no_id[]">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Besar Nilai :</strong>
-                <input type="text" name="besar_nilai[]" class="form-control" placeholder="Besar Nilai">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Keterangan Nilai :</strong>
-                <input type="text" name="ket_nilai[]" class="form-control" placeholder="Keterangan Nilai">
-            </div>
-        </div>
-
-        @endforeach
+            <table class="table table-bordered table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Besar Nilai</th>
+                        <th>Keterangan Nilai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($siswa as $i => $siswaa)
+                    <tr>
+                        <th>{{ $i + 1 }}</th>
+                        <td>{{ $siswaa->nama_siswa }}</td>
+                        <input type="hidden" value="{{ $siswaa->nama_siswa }}" name="nama_siswa[]">
+                        <input type="hidden" value="{{ ++$i }}" name="no_id[]">
+                        @for ($u=0; $u < count($siswa); $u++)
+                            @if (isset($nilai[$u]))
+                                @if ($nilai[$u]->nama_siswa == $siswaa->nama_siswa)
+                                    <td>
+                                        <input type="number" value="{{ $nilai[$u]->besar_nilai }}" name="besar_nilai[]" style="width:65px;" id="besar_nilai" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="text" value="{{ $nilai[$u]->ket_nilai }}" name="ket_nilai[]" style="width:150px;" id="ket_nilai" class="form-control">
+                                    </td>
+                                @elseif ($nilai[$u]->besar_nilai == null)
+                                    <td>
+                                        <input type="number" name="besar_nilai[]" style="width:65px;" id="besar_nilai" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="ket_nilai[]" style="width:150px;" id="ket_nilai" class="form-control">
+                                    </td>
+                                @endif
+                            @else
+                                @if ($i > count($nilai))
+                                    @if (isset($nilai[$u]))
+                                        <!-- ... -->
+                                    @elseif (count($nilai) != 1)
+                                    <td>
+                                        <input type="number" name="besar_nilai[]" style="width:65px;" id="besar_nilai" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="ket_nilai[]" style="width:150px;" id="ket_nilai" class="form-control">
+                                    </td>
+                                    @endif
+                                @endif
+                            @endif
+                        @endfor
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </div>

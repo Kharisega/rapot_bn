@@ -40,35 +40,39 @@
             </div>
         @endif
 
-        <table class="table table-bordered">
-            <tr class="table-success">
-                <th>No</th>
-                <th>ID Penilaian</th>
-                <th>Nama Penilaian</th>
-                <th>Kelas</th>
-                <th>Jurusan</th>
-                <th>Tanggal Penilaian</th>
-                <th>Jenis Penilaian</th>
-                <th>Tipe Penilaian</th>
-                <th>Mata Pelajaran</th>
-                <th>E-Mail</th>
-                <th @if( $data == 1) hidden @endif>Aksi</th>
-            </tr>
-            @foreach ($rencana as $i => $rencanaa)
-                <tr>
-                    <td>{{ ++$i }}</td>
-                    <td>{{ $rencanaa->id_penilaian }}</td>
-                    <td>{{ $rencanaa->nama_penilaian }}</td>
-                    <td>{{ $rencanaa->kelas }}</td>
-                    <td>{{ $rencanaa->jurusan }}</td>
-                    <td>{{ $rencanaa->tgl_penilaian }}</td>
-                    <td>{{ $rencanaa->jenis_nilai }}</td>
-                    <td>{{ $rencanaa->tipe_nilai }}</td>
-                    <td>{{ $rencanaa->mapel }}</td>
-                    <td>{{ $rencanaa->email }}</td>
-                    <td @if( $data == 1) hidden @endif>
-                        <form action="{{ route('rencana.destroy', $rencanaa->id_penilaian) }}" method="POST">
-                            <a href="{{ route('rencana.edit',$rencanaa->id_penilaian) }}" class="btn btn-primary">Edit</a>
+    <table class="table table-bordered">
+        <tr>
+            <th>No</th>
+            <th>ID Penilaian</th>
+            <th>Nama Penilaian</th>
+            <th>Kelas</th>
+            <th>Jurusan</th>
+            <th>Tanggal Penilaian</th>
+            <th>Jenis Penilaian</th>
+            <th>Tipe Penilaian</th>
+            <th>Mata Pelajaran</th>
+            <th>Tahun Ajaran</th>
+            <th>Semester</th>
+            <th>E-Mail</th>
+            <th @if( $data == 1) hidden @endif>Aksi</th>
+        </tr>
+        @foreach ($rencana as $i => $rencanaa)
+            <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $rencanaa->id_penilaian }}</td>
+                <td>{{ $rencanaa->nama_penilaian }}</td>
+                <td>{{ $rencanaa->kelas }}</td>
+                <td>{{ $rencanaa->jurusan }}</td>
+                <td>{{ $rencanaa->tgl_penilaian }}</td>
+                <td>{{ $rencanaa->jenis_nilai }}</td>
+                <td>{{ $rencanaa->tipe_nilai }}</td>
+                <td>{{ $rencanaa->mapel }}</td>
+                <td>{{ $rencanaa->tahun_ajaran }}</td>
+                <td>{{ $rencanaa->semester }}</td>
+                <td>{{ $rencanaa->email }}</td>
+                <td @if( $data == 1) hidden @endif>
+                    <form action="{{ route('rencana.destroy', $rencanaa->id_penilaian) }}" method="POST">
+                        <a href="{{ route('rencana.edit',$rencanaa->id_penilaian) }}" class="btn btn-primary">Edit</a>
 
                             @csrf
                             @method('DELETE')

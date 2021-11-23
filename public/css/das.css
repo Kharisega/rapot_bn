@@ -117,3 +117,8 @@
     color: rgb(237, 237, 238);
     font-family: Georgia;
 }
+
+input[type="checkbox"] {
+    appearance: checkbox !important;
+    display: inline-block;
+}
