@@ -68,12 +68,12 @@
                 <label for="agama">Agama :</label>
                 <select class="form-control" id="agama" name="agama" value="{{ $siswa->agama }}">
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Agama</option>
-                <option value="Kristen">Kristen</option>
-                <option value="Katolik">Katolik</option>
+                <option value="Kristen Protestan">Kristen Protestan</option>
+                <option value="Kristen Katolik">Kristen Katolik</option>
                 <option value="Islam">Islam</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Budha">Budha</option>
-                <option value="Kong Hu Chu">Kristen</option>
+                <option value="Kong Hu Chu">Kong Hu Chu</option>
                 </select>
             </div>
         </div>

@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Post;
+use Illuminate\Support\Facades\DB;
 
 class GuruController extends Controller
 {
@@ -28,7 +29,14 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru.create');
+        $jurusan = DB::table('jurusan')->get();
+        $kelas = DB::table('kelas')->get();
+        $mapel = DB::table('mapel')->get();
+        return view('guru.create', [
+            'jurusan' => $jurusan,
+            'kelas' => $kelas,
+            'mapel' => $mapel,
+        ]);
     }
 
     /**

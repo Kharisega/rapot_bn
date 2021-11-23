@@ -10,23 +10,23 @@
         </div>
     </div>
 
-            <div class="pull-left">
-                <form action="{{ route('rencana.cari') }}" method="post">
-                    @csrf
-                        <select name="kelas" id="kelas" class="btn btn-dark mb-1">
-                            <option value="X">X</option>
-                            <option value="XI">XI</option>
-                            <option value="XII">XII</option>
-                        </select>
-                        <select name="jurusan" id="jurusan" class="btn btn-dark mb-1">
-                            <option value="RPL">RPL</option>
-                            <option value="TKRO">TKRO</option>
-                            <option value="BKP">BKP</option>
-                            <option value="TB">TB</option>
-                            <option value="MM">MM</option>
-                        </select>
-                        <a href="{{ route('rencana.index') }}" class="btn btn-dark">Semua</a>
-                        <button type="submit" class="btn btn-secondary">Cari</button>
+                <div class="pull-left">
+                <form action="{{ route('nilai.cari') }}" method="post">
+                @csrf
+                    <select name="kelas" id="kelas" class="btn btn-secondary mb-1">
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                    </select>
+                    <select name="jurusan" id="jurusan" class="btn btn-secondary mb-1">
+                        <option value="RPL">RPL</option>
+                        <option value="TKRO">TKRO</option>
+                        <option value="BKP">BKP</option>
+                        <option value="TB">TB</option>
+                        <option value="MM">MM</option>
+                    </select>
+                    <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary">Semua</a>
+                    <button type="submit" class="btn btn-block btn-primary">Cari</button>
                 </form>
             </div>
 

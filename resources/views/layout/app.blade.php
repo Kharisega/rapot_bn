@@ -23,9 +23,9 @@
 </head>
 <body>
     @if(Auth::user()->roles[0]['name']=='admin')
-        <nav class="navbar navbar-light" style="background-color:#3673c4;">
+        <nav class="navbar navbar-expand-lg" style="background-color:#ADBABB;">
             <div class="logop">
-                <img src="https://lh3.googleusercontent.com/x8RculcUKlQGtueDjr458haqdp3o4MPFv9Qnr242kay_JIU7l3zOCURlPEcRketlZZfS=s85" alt="">
+                <img src="images/gematria.png" alt="">
             </div>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
@@ -122,10 +122,10 @@
                             <a href="{{ route('tahun.index') }}" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Tahun Ajaran</span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                            <a href="{{ route('jurusan.index') }}" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Jurusan</span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                            <a href="{{ route('kelas.index') }}" class="list-group-item list-group-item-action bg-dark text-white">
                                 <span class="menu-collapsed">Kelas</span>
                             </a>
                         </div>
@@ -205,7 +205,7 @@
                 @if(Auth::user()->roles[0]['name']=='guru')
         <nav class="navbar navbar-light" style="background-color:#3673c4;">
             <div class="logop">
-                <img src="https://lh3.googleusercontent.com/x8RculcUKlQGtueDjr458haqdp3o4MPFv9Qnr242kay_JIU7l3zOCURlPEcRketlZZfS=s85" alt="">
+                <img src="images/2.jpg" alt="">
             </div>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
@@ -345,7 +345,7 @@
                 @if(Auth::user()->roles[0]['name']=='siswa')
         <nav class="navbar navbar-light" style="background-color:#3673c4;">
             <div class="logop">
-                <img src="https://lh3.googleusercontent.com/x8RculcUKlQGtueDjr458haqdp3o4MPFv9Qnr242kay_JIU7l3zOCURlPEcRketlZZfS=s85" alt="">
+                <img src="images/2.jpg" alt="">
             </div>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">

@@ -1,0 +1,75 @@
+
+                @for ($i=0; $i < ($remidi*$jumlah); $i++) 
+                    @if ($remidi_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                        @if ($remidi_siswa[$i]->besar_nilai == null)
+                            <td> - </td>
+                        @else 
+                            <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                        @endif
+                        @if ($remidi_siswa[$i] >= '75')
+                            <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                            <?php
+                                $aveulangan = $aveulangan + $remidi_siswa[$i]->besar_nilai;
+                            ?>
+                        @endif
+                    @endif
+                @endfor
+
+
+                 && $remidi_siswa[$i]->nama_penilaian == $ulangan_siswa[$i]->nama_penilaian
+
+
+
+                 @if ($ulangan_siswa[$i]->besar_nilai >= '75')
+                                            <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                                            <?php
+                                                $aveulangan = $aveulangan + $remidi_siswa[$i]->besar_nilai;
+                                            ?>
+                                        @else
+                                            <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                                        @endif
+
+
+
+                @for ($i=0; $i < ($remidi*$jumlah); $i++)
+                                @if (isset($remidi_siswa[$i]))
+                                    @if ($remidi_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                                        <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                                    @endif
+                                @else
+                                    <td>0</td>
+                                @endif
+                            @endfor
+
+
+                            $query = mysqli_query($koneksi, "SELECT NYA ") or die(mysqli_error());
+                            $jumlah = mysqli_num_rows($query);
+                            while($data = mysqli_fetch_assoc($query)) {
+                                <div>
+                                    <p><?php echo $data['namakolom']?></p>
+                                </div>
+
+                                // jadi tag tagnya dulu baru datanya yang di echo jadi jangan echo semua
+                            }
+
+
+
+                            @for ($i=0; $i < $remed; $i++)
+                                    @if (isset($remidi_siswa[$i]))
+                                        @if ($remidi_siswa[$i]->nama_siswa == $siswaa->nama_siswa)
+                                            
+                                                <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                                                <td>{{ $remidi_siswa[$i]->besar_nilai }}</td>
+                                                <?php
+                                                    $aveulangan = $aveulangan + $remidi_siswa[$i]->besar_nilai;
+                                                ?>
+                                            
+                                        @endif
+                                    @else
+                                        <td>0</td>
+                                        <td>{{ $ulangan_siswa[$i]->besar_nilai }}</td>
+                                        <?php
+                                            $aveulangan = $aveulangan + $ulangan_siswa[$i]->besar_nilai;
+                                        ?>
+                                    @endif
+                                @endfor
