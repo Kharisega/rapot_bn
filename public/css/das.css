@@ -6,13 +6,13 @@
     font-family: Georgia Black;
 }
 #sidebar-container {
-    height: 85vh;
+    height: 89vh;
     background-color: rgb(63, 60, 60);
 }
 .sidebar-expanded {
     width: 230px;
-    overflow-y: scroll;
     height: 545px;
+    overflow-y: scroll;
 }
 .sidebar-collapsed {
     width: 60px;
@@ -84,19 +84,23 @@
     margin-top: 30px;
 }
 .logop img {
-    width: 100px;
-    height: 100px;
-    margin-top: -40px;
-    margin-block-end: -60px;
+    width: 92px;
+    height: 91px;
+    margin-top: -26px;
+    margin-block-end: -40px;
     border-radius: 180px;
 
 }
-.col{
+.warnagelap {
+    color: rgb(51,44,85);
+    font-family: 'Roboto Mono', monospace;
+}
+.kolom{
     margin-left:0;
     margin-top: 0;
     padding: 0;
     width: auto;
-    height: 540px;
+    height: 89vh;
     overflow-y: scroll;
     overflow-x: scroll;
 }

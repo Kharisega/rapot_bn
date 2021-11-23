@@ -13,32 +13,24 @@
                 <div class="pull-left">
                 <form action="{{ route('nilai.cari') }}" method="post">
                 @csrf
-<<<<<<< HEAD
-                    <select name="kelas" id="kelas" class="btn btn-secondary mb-1">
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                    </select>
-                    <select name="jurusan" id="jurusan" class="btn btn-secondary mb-1">
-                        <option value="RPL">RPL</option>
-                        <option value="TKRO">TKRO</option>
-                        <option value="BKP">BKP</option>
-                        <option value="TB">TB</option>
-                        <option value="MM">MM</option>
-=======
-                    <select name="kelas" id="kelas" class="form-control">
-                        @foreach ($kelas as $u => $kelass)
-                            <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
-                        @endforeach
-                    </select>
-                    <select name="jurusan" id="jurusan" class="form-control">
-                        @foreach ($jurusan as $u => $jurusann)
-                            <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
-                        @endforeach
->>>>>>> 3f343cc9f2a57346850a0b9ee76c05127a16a338
-                    </select>
-                    <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary">Semua</a>
-                    <button type="submit" class="btn btn-block btn-primary">Cari</button>
+                <div class="row">
+                    <div class="col">
+                        <select name="kelas" id="kelas" class="form-control col-sm-2 mb-2">
+                            @foreach ($kelas as $u => $kelass)
+                                <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                            @endforeach
+                        </select>
+                        <select name="jurusan" id="jurusan" class="form-control col-sm-2 mb-2">
+                            @foreach ($jurusan as $u => $jurusann)
+                                <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary col-sm-2 mb-2">Semua</a>
+                        <button type="submit" class="btn btn-block btn-primary col-sm-2 mb-2">Cari</button>
+                    </div>
+                </div>
                 </form>
             </div>
 

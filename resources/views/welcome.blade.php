@@ -52,7 +52,7 @@
             <div class="col-lg-15 pt-7 text-center">
 
       <h1 style="text-shadow: 4px 4px 5px rgb(224, 218, 218);margin-top : 130px; color:aliceblue">Selamat Datang, Di Website Raport</h1>
-      <h3 style="text-shadow: 4px 4px 5px white;margin-top : 30px; color:aliceblue">SMK Bagimu Negriku</h3>
+      <h3 style="text-shadow: 4px 4px 5px white;margin-top : 30px; color:aliceblue">SMK Bagimu Negeriku</h3>
       </div>
         </div>
     </div>

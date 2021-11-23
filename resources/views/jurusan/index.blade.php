@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="mb-3">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Data Kompetensi Keahlian</h2>
