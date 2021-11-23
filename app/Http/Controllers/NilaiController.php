@@ -25,8 +25,10 @@ class NilaiController extends Controller
      */
     public function index()
     {
+        $kelas = DB::table('kelas')->get();
+        $jurusan = DB::table('jurusan')->get();
         $rencana = DB::table('penilaian')->where('email', auth()->user()->email)->paginate();
-        return view('nilai.index', ['rencana' => $rencana]);
+        return view('nilai.index', ['rencana' => $rencana, 'kelas' => $kelas, 'jurusan' => $jurusan]);
     }
 
     /**

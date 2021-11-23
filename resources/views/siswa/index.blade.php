@@ -74,7 +74,7 @@
                 <td>{{ $siswi->alamat_wali }}</td>
                 <td>{{ $siswi->nomor_telp_wali }}</td>
                 <td>{{ $siswi->pekerjaan_wali }}</td>
-                <td><img src="{{ $siswi->foto_siswa }}" alt="{{ $siswi->foto_siswa }}"></td>
+                <td><img src="{{url('/fotosiswa/') . '/' . $siswi->foto_siswa}}" alt="{{ $siswi->foto_siswa }}"></td>
                 <td>
                     <form action="{{ route('siswa.destroy', $siswi->id_siswa) }}" method="POST">
                         <a href="{{ route('siswa.edit',$siswi->id_siswa) }}" class="btn btn-success btn-sm w-100 ">Edit</a>

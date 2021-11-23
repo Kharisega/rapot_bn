@@ -13,16 +13,14 @@
                 <form action="{{ route('nilai.cari') }}" method="post">
                 @csrf
                     <select name="kelas" id="kelas" class="form-control">
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
+                        @foreach ($kelas as $u => $kelass)
+                            <option value="{{ $kelass->kelas }}">{{ $kelass->kelas }}</option>
+                        @endforeach
                     </select>
                     <select name="jurusan" id="jurusan" class="form-control">
-                        <option value="RPL">RPL</option>
-                        <option value="TKRO">TKRO</option>
-                        <option value="BKP">BKP</option>
-                        <option value="TB">TB</option>
-                        <option value="MM">MM</option>
+                        @foreach ($jurusan as $u => $jurusann)
+                            <option value="{{ $jurusann->nama }}">{{ $jurusann->nama }}</option>
+                        @endforeach
                     </select>
                     <a href="{{ route('nilai.index') }}" class="btn btn-block btn-primary">Semua</a>
                     <button type="submit" class="btn btn-block btn-primary">Cari</button>

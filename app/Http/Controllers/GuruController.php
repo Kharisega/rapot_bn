@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Post;
 // use image;
 use Illuminate\Support\Facades\DB;
+use Image;
 
 class GuruController extends Controller
 {
@@ -55,7 +56,7 @@ class GuruController extends Controller
             'ttl_guru' => 'required',
             'telp_guru' => 'required',
             'alamat_guru' => 'required',
-            'foto_guru' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             'mapel' => 'required',
             'kelas' => 'required',
             'status' => 'required',
@@ -65,6 +66,13 @@ class GuruController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
+        $image = $request->file('image');
+        $nameImage = $request->file('image')->getClientOriginalName();
+
+        $thumbImage = Image::make($image->getRealPath())->resize(85, 85);
+        $thumbPath = public_path() . '/fotoguru/' . $nameImage;
+        $thumbImage = Image::make($thumbImage)->save($thumbPath);
+
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -72,7 +80,20 @@ class GuruController extends Controller
         ]);
 
         $user->assignRole('guru')->get();
-        Guru::create($request->all());
+        Guru::create([
+            'nip' => $request['nip'],
+            'email' => $request['email'],
+            'nama_guru' => $request['nama_guru'],
+            'jk_guru' => $request['jk_guru'],
+            'ttl_guru' => $request['ttl_guru'],
+            'telp_guru' => $request['telp_guru'],
+            'alamat_guru' => $request['alamat_guru'],
+            'foto_guru' => $nameImage,
+            'mapel' => $request['mapel'],
+            'kelas' => $request['kelas'],
+            'status' => $request['status'],
+            'kelas_bimbingan' => $request['kelas_bimbingan'],
+        ]);
         return redirect()->route('guru.index')->with('success', "Data Berhasil di input");
     }
 
