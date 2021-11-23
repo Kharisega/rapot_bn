@@ -19,7 +19,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-dark table-striped  align-middle">
         <tr>
             <th>No</th>
             <th>ID Kompetensi Keahlian</th>
@@ -35,12 +35,12 @@
                 <td>{{ $jurusann->alias }}</td>
                 <td>
                     <form action="{{ route('jurusan.destroy', $jurusann->id_jurusan) }}" method="POST">
-                        <a href="{{ route('jurusan.edit',$jurusann->id_jurusan) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('jurusan.edit',$jurusann->id_jurusan) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
 
                     </form>
                 </td>

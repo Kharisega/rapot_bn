@@ -112,8 +112,8 @@
                 <label for="agama">Agama :</label>
                 <select class="form-control" id="agama" name="agama">
                 <option selected class="form-select" aria-label="Disabled select example" disabled>Agama</option>
-                <option value="Kristen">Kristen</option>
-                <option value="Katolik">Katolik</option>
+                <option value="Kristen Protestan">Kristen Protestan</option>
+                <option value="Kristen Katolik">Kristen Katolik</option>
                 <option value="Islam">Islam</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Budha">Budha</option>

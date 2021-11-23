@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="mb-3">
-                <div class="-lg-20 margin-tb alert alert-primary text-center mt-3">
+                <div class="-lg-20 margin-tb alert text-left mt-3">
                     <div class="pull-left">
                         <h2>Data Siswa</h2>
                     </div>
-                    <div class="text-right">
+                    <div class="text-left">
                         <a href="{{ route('siswa.create') }}" class="btn btn-success">Tambah Data</a>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
-@extends('rencana.layouts')
-  
+@extends('layout.app')
+
 @section('content')
 <div class="container">
 <div class="row">
@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -23,10 +23,10 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('rencana.store') }}" method="POST">
     @csrf
-  
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -46,9 +46,17 @@
                 </select>
 =======
                 <strong>Kelas :</strong>
+<<<<<<< HEAD
                 <input type="text" name="kelas" value="{{ $kelas }}" class="form-control" placeholder="kelas" Disabled>
                 <input type="hidden" name="kelas" value="{{ $kelas }}">
 >>>>>>> db111e59066a78da7d2a29c5869760391b4a36f5
+=======
+                <select name="kelas" id="kelas" class="form-control">
+                        @foreach ($kelas as $mp => $kelass)
+                            <option value="{{ $kelass }}">{{ $kelass }}</option>
+                        @endforeach
+                </select>
+>>>>>>> 93cbc36b396394baae6e4a0d5d8a844fea1ab3f8
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,9 +85,17 @@
                 <input type="text" id="mapel" name="mapel" class="form-control" placeholder="Mata Pelajaran">
 =======
                 <strong>Mata Pelajaran :</strong>
+<<<<<<< HEAD
                 <input type="text" name="mapel" value="{{ $mapel }}" class="form-control" placeholder="Mata Pelajaran" disabled>
                 <input type="hidden" name="mapel" value="{{ $mapel }}">
 >>>>>>> db111e59066a78da7d2a29c5869760391b4a36f5
+=======
+                <select name="mapel" id="mapel" class="form-control">
+                        @foreach ($mapel as $mp => $mapell)
+                            <option value="{{ $mapell }}">{{ $mapell }}</option>
+                        @endforeach
+                </select>
+>>>>>>> 93cbc36b396394baae6e4a0d5d8a844fea1ab3f8
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -117,11 +133,31 @@
 >>>>>>> db111e59066a78da7d2a29c5869760391b4a36f5
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Tahun Ajaran :</strong>
+                <select name="tahun_ajaran" id="tahun_ajaran" class="form-control">
+                    @foreach ($tahun as $thn => $tahunn)
+                        <option value="{{ $tahunn->tahun_ajaran }}">{{ $tahunn->tahun_ajaran }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Semester :</strong>
+                <select name="semester" id="semester" class="form-control">
+                    @foreach ($semester as $smstr => $semesterr)
+                        <option value="{{ $semesterr->semester }}">{{ $semesterr->semester }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success mt-3">Simpan</button>
                 <button type="reset" class="btn btn-danger mt-3">Reset</button>
         </div>
     </div>
-   
+
 </form>
 @endsection

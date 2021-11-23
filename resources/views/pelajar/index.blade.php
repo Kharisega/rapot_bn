@@ -1,6 +1,7 @@
-@extends('rencana.layouts')
+@extends('layout.app')
 
 @section('content')
+    <div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -12,7 +13,7 @@
             <div class="pull-left">
                 <form action="{{ route('lihat.cari') }}" method="post">
                 @csrf
-                    <select name="jenis_penilaian" id="jenis_penilaian" class="form-control">
+                    <select name="jenis_penilaian" id="jenis_penilaian" class="btn btn-secondary mb-1">
                     @foreach ($jenis_nilai as $u => $jenis_nilaii)
                         <option value="{{ $jenis_nilaii->jenis_nilai }}">{{ $jenis_nilaii->jenis_nilai }}</option>
                     @endforeach
@@ -21,7 +22,7 @@
                     <button type="submit" class="btn btn-block btn-primary">Cari</button>
                 </form>
             </div>
-            
+
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -61,7 +62,7 @@
             </tr>
             @endforeach
     </table>
+</div>
 
-    
 
 @endsection

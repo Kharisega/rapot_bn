@@ -23,6 +23,8 @@ class CreateTabelPenilaian extends Migration
             $table->string('tipe_nilai');
             $table->string('email');
             $table->string('mapel');
+            $table->string('tahun_ajaran');
+            $table->string('semester');
             $table->timestamps();
         });
     }

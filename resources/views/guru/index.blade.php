@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-        <div class="col-lg-20 margin-tb alert alert-primary text-center mt-3">
+        <div class="col-lg-20 margin-tb alert mt-3">
             <div class="pull-left">
                 <h2>Data Guru</h2>
             </div>
-            <div class="text-right">
+            <div class="text-left">
                 <a href="{{ route('guru.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
@@ -47,8 +47,8 @@
                 <td>{{ $gur->telp_guru }}</td>
                 <td>{{ $gur->alamat_guru }}</td>
                 <td><img src="{{url('/fotoguru/') . '/' . $gur->foto_guru}}" alt="{{ $gur->foto_guru }}"></td>
-                <td>{{ $gur->mapel }}</td>
-                <td>{{ $gur->kelas }}</td>
+                <td>{{ $gur->nama_mapel }}</td>
+                <td>{{ $gur->kelas }}</td>  
                 <td>{{ $gur->status }}</td>
                 <td>{{ $gur->kelas_bimbingan }}</td>
                 <td>
@@ -66,6 +66,6 @@
             @endforeach
     </table>
 
-    {!! $guru->links() !!}
+
 </div>
 @endsection

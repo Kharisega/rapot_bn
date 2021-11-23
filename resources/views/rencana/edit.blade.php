@@ -1,6 +1,7 @@
-@extends('rencana.layouts')
-  
+@extends('layout.app')
+
 @section('content')
+<div class="container">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -11,7 +12,7 @@
         </div>
     </div>
 </div>
-   
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Edit Gagal</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -22,11 +23,11 @@
         </ul>
     </div>
 @endif
-   
+
 <form action="{{ route('rencana.update', $rencana->id_penilaian) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-  
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -81,10 +82,23 @@
                 <input type="text" id="jn" name="jenis_nilai" class="form-control" value="{{ $rencana->jenis_nilai }}" placeholder="Jenis Nilai">
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Tahun Ajaran :</strong>
+                <input type="text" name="jenis_nilai" class="form-control" value="{{ $rencana->tahun_ajaran }}" placeholder="Tahun Ajaran">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Semester :</strong>
+                <input type="text" name="semester" class="form-control" value="{{ $rencana->semester }}" placeholder="Semester">
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-success">Simpan</button>
         </div>
     </div>
-   
+
 </form>
+</div>
 @endsection

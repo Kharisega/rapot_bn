@@ -86,23 +86,25 @@ class SiswaController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        $nama_siswa = $request['nama_siswa'];
-        $id_kelas = DB::table('kelas')->where('kelas', $request->kelas)->value('id_kelas');
-        $id_jurusan = DB::table('jurusan')->where('nama', $request->jurusan)->value('id_jurusan');
-        $tahun = DB::table('tahun_ajaran')->orderBy('created_at', 'desc')->value('id_tahun');
-        $semester = DB::table('semester')->where('semester', 'Ganjil')->value('id_semester');
-        $email = $request['email'];
+$nama_siswa = $request['nama_siswa'];
+$id_kelas = DB::table('kelas')->where('kelas', $request->kelas)->value('id_kelas');
+$id_jurusan = DB::table('jurusan')->where('nama', $request->jurusan)->value('id_jurusan');
+$tahun = DB::table('tahun_ajaran')->orderBy('created_at', 'desc')->value('id_tahun');
+$semester = DB::table('semester')->where('semester', 'Ganjil')->value('id_semester');
+$email = $request['email'];
+ $student = DB::table('student')->insert([
+     'nama_siswa' => $nama_siswa,
+     'id_kelas' => $id_kelas,
+     'id_jurusan' => $id_jurusan,
+     'id_semester' => $semester,
+     'id_tahun' => $tahun,
+     'email' => $email,
+ ]);
 
-        $student = DB::table('student')->insert([
-            'nama_siswa' => $nama_siswa,
-            'id_kelas' => $id_kelas,
-            'id_jurusan' => $id_jurusan,
-            'id_semester' => $semester,
-            'id_tahun' => $tahun,
-            'email' => $email,
-        ]);
+ $user->assignRole('siswa')->get();
+ Siswa::create($request->all());
+         return redirect()->route('siswa.index')->with('success', "Data Berhasil di input");
 
-        
         $user->assignRole('siswa')->get();
         Siswa::create(
             [
@@ -186,7 +188,7 @@ class SiswaController extends Controller
             'alamat_wali' => 'required',
             'nomor_telp_wali' => 'required',
             'pekerjaan_wali' => 'required',
-            
+
         ]);
         $siswa->update($request->all());
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil di update');

@@ -19,7 +19,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-dark table-striped  align-middle">
         <tr>
             <th>No</th>
             <th>ID Kelas</th>
@@ -33,12 +33,12 @@
                 <td>{{ $kelass->kelas }}</td>
                 <td>
                     <form action="{{ route('kelas.destroy', $kelass->id_kelas) }}" method="POST">
-                        <a href="{{ route('kelas.edit', $kelass->id_kelas) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('kelas.edit', $kelass->id_kelas) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
 
                     </form>
                 </td>
